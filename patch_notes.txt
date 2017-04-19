@@ -1,0 +1,2 @@
+project
+	rewrote the_mind according to the changes made to previous version
