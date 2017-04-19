@@ -6,7 +6,7 @@
 /*   By: pichrist <pichrist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/14 23:41:20 by pichrist          #+#    #+#             */
-/*   Updated: 2017/04/19 17:37:00 by pichrist         ###   ########.fr       */
+/*   Updated: 2017/04/19 18:53:50 by pichrist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	stuff(char *file_content, size_t sq_size, char *square)
 
 	d = 0;
 	exit_code = 0;
-	t = find_tetri(file_content, 0, 0, -1, NULL);
+	t = find_tetri(file_content, 0, 0, -1);
 	while (!exit_code && !d++)
 	{
 		square = gen_square(++sq_size);

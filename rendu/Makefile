@@ -6,7 +6,7 @@
 #    By: pichrist <pichrist@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/08/19 09:41:20 by pichrist          #+#    #+#              #
-#    Updated: 2017/03/30 17:43:52 by pichrist         ###   ########.fr        #
+#    Updated: 2017/04/19 21:18:16 by pichrist         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,8 +19,7 @@ NAME = fillit
 # DIRECTORIES
 SRC_PATH = src/
 SRC_NAME = 	fillit.c display_square.c read_file.c find_square_size.c \
-			gen_square.c find_tetri.c the_mind.c create_tetri.c parse_file.c \
-			debug.c
+			gen_square.c find_tetri.c the_mind.c create_tetri.c parse_file.c
 HEAD_PATH = includes/
 HEAD_NAME = fillit.h libft.h
 LIB = includes/libft.a

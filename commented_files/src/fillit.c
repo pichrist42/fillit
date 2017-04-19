@@ -6,44 +6,91 @@
 /*   By: pichrist <pichrist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/14 23:41:20 by pichrist          #+#    #+#             */
-/*   Updated: 2017/04/18 09:19:46 by pichrist         ###   ########.fr       */
+/*   Updated: 2017/04/19 20:19:41 by pichrist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fillit.h"
 
+void	tetri_lstiter(t_tetri *lst, void (*f)(t_tetri *elem))
+{
+	if (lst && f)
+	{
+		// while (lst)
+		// {
+		// 	f(lst);
+		// 	lst = lst->next;
+		// }
+
+		// f(lst->prev);
+		f(lst);
+		int stop = 0;
+		while (!stop)
+			if (lst->next)
+			{
+				lst = lst->next;
+				f(lst);
+			}
+			else
+				stop = 1;
+	}
+}
+
+int count = 0;
+
+void	display_tetris(t_tetri *t)
+{
+	print_int("tetri nb ", count++, 0);
+	print_char(" : ", t->alpha, 1);
+	for (int i = 0; i < 4; ++i)
+	{
+		print_int("(", t->block[i][0], 0);
+		print_int(" ; ", t->block[i][1], 0);
+		ft_putendl(")");
+	}
+}
+
 void	stuff(char *file_content, size_t sq_size, char *square)
 {
-	t_tetri	*t;
+	t_tetri	*first;
 	int		exit_code;
 	int		d;
 
 	d = 0;
 	exit_code = 0;
-	t = find_tetri(file_content, 0, 0, -1, NULL);
-	while (t->next)
-	{
-		ft_putchar(t->alpha);
-		ft_putendl("");
-		for (int i = 0; i < 4; ++i)
-		{
-			for (int j = 0; j < 2; ++j)
-			{
-				ft_putnbr(t->block[i][j]);
-				ft_putstr(" - ");
-			}
-			ft_putendl("");
-		}
-		ft_putendl("");
-		if (t->next)
-			t = t->next;
-	}
+	first = find_tetri(file_content, 0, 0, -1);
+	tetri_lstiter(first, *display_tetris);
+	
+	// while (t->next)
+	// {
+	// 	ft_putchar(t->alpha);
+	// 	ft_putendl("");
+	// 	for (int i = 0; i < 4; ++i)
+	// 	{
+	// 		for (int j = 0; j < 2; ++j)
+	// 		{
+	// 			ft_putnbr(t->block[i][j]);
+	// 			if (!(j % 2))
+	// 				ft_putstr(" - ");
+	// 		}
+	// 		ft_putendl("");
+	// 	}
+	// 	if (t->next)
+	// 	{
+	// 		ft_putendl("\nnext");
+	// 		t = t->next;
+	// 	}
+	// 	ft_putendl("\nover");
+	// }
+
+
+
 // 	while (!exit_code && !d++)
 // 	{
 // 		square = gen_square(++sq_size);
 // 		if (DEBUG)
 // 			print_int("sq_size ", sq_size);
-// 		square = the_mind(square, t, sq_size);
+// 		square = the_mind(square, first, sq_size);
 // 		exit_code = ft_strncmp(square, "too small", \
 // ft_strlen("too small"));
 // 	}

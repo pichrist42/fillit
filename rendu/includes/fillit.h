@@ -6,7 +6,7 @@
 /*   By: pichrist <pichrist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/12 15:54:50 by pichrist          #+#    #+#             */
-/*   Updated: 2017/04/19 17:51:38 by pichrist         ###   ########.fr       */
+/*   Updated: 2017/04/19 18:34:29 by pichrist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ t_tetri				*create_tetri();
 ** struct. Returns NULL in case of error.
 */
 t_tetri				*find_tetri(char *file_content, int i, int j, \
-	int block_read, t_tetri *first);
+	int block_read);
 t_tetri				*push_up_tetri(t_tetri *first, t_tetri *t);
 char				*the_mind(char *square, t_tetri *t, size_t sq_size);
 
