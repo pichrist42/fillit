@@ -6,7 +6,7 @@
 /*   By: pichrist <pichrist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/12 15:54:50 by pichrist          #+#    #+#             */
-/*   Updated: 2017/04/19 17:51:38 by pichrist         ###   ########.fr       */
+/*   Updated: 2017/04/18 08:54:37 by pichrist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ t_tetri				*create_tetri();
 */
 t_tetri				*find_tetri(char *file_content, int i, int j, \
 	int block_read, t_tetri *first);
+// t_tetri *find_tetri(char *file_content);
 t_tetri				*push_up_tetri(t_tetri *first, t_tetri *t);
 char				*the_mind(char *square, t_tetri *t, size_t sq_size);
 
@@ -62,4 +63,16 @@ int					parse_file(char *file_content);
 char				*read_file(char *str);
 void				display_square(char *square);
 
+/*
+** DEBUG
+*/
+# define DEBUG 1
+# define DEBUG_POS 0
+# define DEBUG_PLACEMENT 1
+# define DEBUG_CREATION_DETAILLED 1
+# define DEBUG_CREATION_SPECIFIC 0
+
+void				print_int(char *s, int v, int end);
+void				print_char(char *s, char c, int end);
+void				print_end();
 #endif
