@@ -6,7 +6,7 @@
 /*   By: pichrist <pichrist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/22 19:42:30 by pichrist          #+#    #+#             */
-/*   Updated: 2017/04/19 20:54:01 by pichrist         ###   ########.fr       */
+/*   Updated: 2017/04/20 06:24:58 by pichrist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@
 
 void	find_tetri_sub(t_tetri **t, int *block_read, int *off_read)
 {
-	ft_putendl("new tetri");
+	// ft_putendl("new tetri");
 	// printf("actual %p\n", t);
 	(*t)->next = create_tetri();
 	// printf("next %p\n", t->next);
@@ -69,13 +69,13 @@ void	find_tetri_tri(int *i, int *j)
 
 void	find_tetri_quad(int *i, int *j, t_tetri *t, int *block_read)
 {
-	printf("writing on %p\n", t);
+	// printf("writing on %p\n", t);
 	t->alpha = ((t->prev) ? t->prev->alpha + 1 : 'A');
-	print_char("alpha ", t->alpha, 1);
+	// print_char("alpha ", t->alpha, 1);
 	t->block[++(*block_read)][0] = *i;
-	print_int("coord: ", t->block[*block_read][0], 0);
+	// print_int("coord: ", t->block[*block_read][0], 0);
 	t->block[*block_read][1] = *j;
-	print_int(";", t->block[*block_read][1], 1);
+	// print_int(";", t->block[*block_read][1], 1);
 }
 
 t_tetri	*push_up_tetri(t_tetri *first, t_tetri *t)
@@ -109,19 +109,16 @@ t_tetri	*find_tetri(char *file_content, int i, int j, int block_read)
 	if (!(first = create_tetri()))
 		return (NULL);
 	t = first;
-	printf("first %p\n", t);
+	// printf("first %p\n", t);
 	while (file_content[i + j * 5 + off_read])
 	{
 		// if (block_read >= 3)
 		if (!(j % 4) && j > 0)
 		{
-			if (DEBUG_CREATION_DETAILLED || DEBUG_CREATION_SPECIFIC)
-				ft_putendl("next tetri");
+			// if (DEBUG_CREATION_DETAILLED || DEBUG_CREATION_SPECIFIC)
+			// 	ft_putendl("next tetri");
 			t_tetri **u = &t;
 			find_tetri_sub(u, &block_read, &off_read);
-
-
-
 			find_tetri_tri(&i, &j);
 		}
 		// do_debug_read(file_content, i, j);
@@ -140,7 +137,7 @@ t_tetri	*find_tetri(char *file_content, int i, int j, int block_read)
 		}
 		++i;
 	}
-	printf("first %p\n", first);
+	// printf("first %p\n", first);
 	// return (first);
 	return (push_up_tetri(first, first));
 }

@@ -6,7 +6,7 @@
 /*   By: pichrist <pichrist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/12 15:54:50 by pichrist          #+#    #+#             */
-/*   Updated: 2017/04/19 20:08:53 by pichrist         ###   ########.fr       */
+/*   Updated: 2017/04/20 07:08:26 by pichrist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,13 @@ t_tetri				*create_tetri();
 t_tetri				*find_tetri(char *file_content, int i, int j, int \
 	block_read);
 t_tetri				*push_up_tetri(t_tetri *first, t_tetri *t);
-char				*the_mind(char *square, t_tetri *t, size_t sq_size);
+char				*the_mind(char *square, size_t sq_size, t_tetri *t, \
+	int offset);
+int					formula(size_t sq_size, t_tetri *t, int i);
+int					try_place_tetri(char *square, int sq_size, t_tetri *t, \
+	int offset);
+char	*place_tetri(char *square, int sq_size, t_tetri *t, int offset);
+void				clean_tetri(char *square, size_t sq_size, t_tetri *t);
 
 /*
 ** Allocate the square holding the results of the program. Returns the
