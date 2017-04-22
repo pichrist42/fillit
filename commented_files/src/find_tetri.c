@@ -6,16 +6,14 @@
 /*   By: pichrist <pichrist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/22 19:42:30 by pichrist          #+#    #+#             */
-/*   Updated: 2017/04/22 05:35:00 by pichrist         ###   ########.fr       */
+/*   Updated: 2017/04/22 06:00:49 by pichrist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fillit.h"
 
-/*
-	debug
+/*	debug
 	*/
-
 	char	find_prev_t_alpha(t_tetri *t)
 	{
 		if (t->prev)

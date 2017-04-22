@@ -6,7 +6,7 @@
 /*   By: pichrist <pichrist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/14 23:41:20 by pichrist          #+#    #+#             */
-/*   Updated: 2017/04/22 04:54:51 by pichrist         ###   ########.fr       */
+/*   Updated: 2017/04/22 09:54:29 by pichrist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,15 +91,14 @@ void	stuff(char *file_content, size_t sq_size, char *square)
 	{
 		sq_size = (++d > 1) ? ++sq_size : sq_size;
 		square = gen_square(sq_size);
-		if (DEBUG)
-			print_int("sq_size ", sq_size, 1);
 		square = the_mind(square, sq_size, first, 0);
 		exit_code = ft_strncmp(square, "too small", ft_strlen("too small"));
 	}
 	if (!exit_code)
 		ft_putendl("Error during the resolution of the problem.");
 	else
-		display_square(square);
+		// display_square(square);
+		printf("\nend\n");
 }
 
 int		main(int ac, char **av)
