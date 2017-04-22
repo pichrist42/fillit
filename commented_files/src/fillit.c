@@ -6,7 +6,7 @@
 /*   By: pichrist <pichrist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/14 23:41:20 by pichrist          #+#    #+#             */
-/*   Updated: 2017/04/20 07:08:30 by pichrist         ###   ########.fr       */
+/*   Updated: 2017/04/22 04:54:51 by pichrist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,16 @@ void	tetri_lstiter(t_tetri *lst, void (*f)(t_tetri *elem))
 int count = 0;
 void	display_tetris(t_tetri *t)
 {
-	print_int("tetri nb ", count++, 0);
-	print_char(" : ", t->alpha, 1);
-	for (int i = 0; i < 4; ++i)
+	if (DEBUG)
 	{
-		print_int("(", t->block[i][0], 0);
-		print_int(" ; ", t->block[i][1], 0);
-		ft_putendl(")");
+		print_int("tetri nb ", count++, 0);
+		print_char(" : ", t->alpha, 1);
+		for (int i = 0; i < 4; ++i)
+		{
+			print_int("(", t->block[i][0], 0);
+			print_int(" ; ", t->block[i][1], 0);
+			ft_putendl(")");
+		}
 	}
 }
 
@@ -59,8 +62,8 @@ void	stuff(char *file_content, size_t sq_size, char *square)
 	exit_code = 0;
 	first = find_tetri(file_content, 0, 0, -1);
 	
-	tetri_lstiter(first, *display_tetris);
-	ft_putendl("");
+	// tetri_lstiter(first, *display_tetris);
+	// ft_putendl("");
 /*
 	while (t->next)
 	{

@@ -6,7 +6,7 @@
 /*   By: pichrist <pichrist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/12 15:54:50 by pichrist          #+#    #+#             */
-/*   Updated: 2017/04/20 07:08:26 by pichrist         ###   ########.fr       */
+/*   Updated: 2017/04/22 04:53:44 by pichrist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,8 @@ int					formula(size_t sq_size, t_tetri *t, int i);
 int					try_place_tetri(char *square, int sq_size, t_tetri *t, \
 	int offset);
 char	*place_tetri(char *square, int sq_size, t_tetri *t, int offset);
-void				clean_tetri(char *square, size_t sq_size, t_tetri *t);
+void				clean_tetri(char *square, size_t sq_size, t_tetri *t, int \
+	offset);
 
 /*
 ** Allocate the square holding the results of the program. Returns the
@@ -71,11 +72,13 @@ void				display_square(char *square);
 /*
 ** DEBUG
 */
-# define DEBUG 1
+# define DEBUG 0
 # define DEBUG_POS 0
-# define DEBUG_PLACEMENT 1
-# define DEBUG_CREATION_DETAILLED 1
-# define DEBUG_CREATION_SPECIFIC 1
+# define DEBUG_PLACEMENT 0
+# define DEBUG_SQUARE 0
+# define DEBUG_FT 0
+# define DEBUG_CREATION_DETAILLED 0
+# define DEBUG_CREATION_SPECIFIC 0
 
 void				print_int(char *s, int v, int end);
 void				print_char(char *s, char c, int end);

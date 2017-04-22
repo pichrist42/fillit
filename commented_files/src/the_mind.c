@@ -6,7 +6,7 @@
 /*   By: pichrist <pichrist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/22 19:43:00 by pichrist          #+#    #+#             */
-/*   Updated: 2017/04/20 07:13:40 by pichrist         ###   ########.fr       */
+/*   Updated: 2017/04/22 04:53:07 by pichrist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,86 +29,172 @@
 
 int		formula(size_t sq_size, t_tetri *t, int i)
 {
-	return (t->block[i][0] + t->block[i][1] * (sq_size - 4));
+	// if (sq_size < 4)
+		return (t->block[i][0] + t->block[i][1] * (sq_size + 1));
+	// else if (sq_size > 4)
+	// 	return (t->block[i][0] + t->block[i][1] * (4 - sq_size));
 }
 
 int		try_place_tetri(char *square, int sq_size, t_tetri *t, int offset)
 {
-	print_int("try_place_tetri - sq_size ", sq_size, 0);
-	if (t)
-		print_char(" - tetri ", t->alpha, 0);
-	else
-		ft_putendl("\nerror : no tetri");
-	print_int(" - offset ", offset, 1);
+	if (DEBUG_FT)
+	{
+		ft_putstr("try_place_tetri");
+		print_char(" - tetri ", t->alpha, 1);
+	}
+	if (DEBUG_PLACEMENT)
+	{
+		print_int(" - sq_size ", sq_size, 0);
+		print_int(" - offset ", offset, 1);
+	}
 
 	int i;
 	int ok;
 
 	i = -1;
 	ok = 1;
+	if (DEBUG_PLACEMENT)
+	{
+		print_int("\tsq_size ", sq_size, 1);
+		print_int("\toffset ", offset, 1);
+	}
 	while (++i < 4 && ok)
+	{
+		if (DEBUG_PLACEMENT)
+		{
+			ft_putendl("\tnew loop");
+			print_int("\t\ti ", i, 1);
+			print_int("\t\tx ", t->block[i][0], 1);
+			print_int("\t\ty ", t->block[i][1], 1);
+			print_char("\t\tchar checked is ", square[formula(sq_size, t, i) + offset], 1);
+			print_int("\t\tformula ", formula(sq_size, t, i), 1);
+		}
 		if (square[formula(sq_size, t, i) + offset] != '.')
 			ok = 0;
+	}
+	if(DEBUG_PLACEMENT)
+		print_int("\treturns ", ok, 1);
 	return (ok);
 }
 
 char	*place_tetri(char *square, int sq_size, t_tetri *t, int offset)
 {
-	print_int("place_tetri - sq_size ", sq_size, 0);
-	print_char(" - tetri ", t->alpha, 0);
-	print_int(" - offset ", offset, 1);
-	
+	if (DEBUG_FT)
+	{
+		ft_putstr("place_tetri");
+		print_char(" - tetri ", t->alpha, 1);
+	}
+	if (DEBUG_PLACEMENT)
+	{
+		print_int(" - sq_size ", sq_size, 0);
+		print_int(" - offset ", offset, 1);
+	}
 	int i;
 
 	i = -1;
 	while (++i < 4)
 		square[formula(sq_size, t, i) + offset] = t->alpha;
-	ft_putendl("place_tetri returning the_mind");;
-	return (the_mind(square, sq_size, t->next, 0));
+	if (DEBUG_FT)
+		ft_putendl("\tplace_tetri -> the_mind");
+	if (DEBUG_SQUARE)
+		ft_putendl(square);
+	if (t->next)
+		return (the_mind(square, sq_size, t->next, 0));
+	return (square);
 }
 
-void	clean_tetri(char *square, size_t sq_size, t_tetri *t)
+void	clean_tetri(char *square, size_t sq_size, t_tetri *t, int offset)
 {
-	print_int("clean tetri - sq_size ", sq_size, 0);
-	print_char(" - tetri ", t->alpha, 1);
-
+	if (DEBUG_FT)
+	{
+		ft_putstr("clean tetri");
+		print_char(" - tetri ", t->alpha, 1);
+	}
+	if (DEBUG_PLACEMENT)
+	{
+		print_int(" - sq_size ", sq_size, 0);
+	}
 	int i;
 
 	i = -1;
 	while (++i < 4)
-		square[formula(sq_size, t, i)] = '.';
+	{
+		if (DEBUG_PLACEMENT)
+		{
+			print_int("i ", i, 0);
+			print_int(" - formula ", formula(sq_size, t, i), 0);
+			print_char(" - char ", square[formula(sq_size, t, i) + offset], 1);
+		}
+		square[formula(sq_size, t, i) + offset] = '.';
+	}
 }
 
 char	*the_mind(char *square, size_t sq_size, t_tetri *t, int offset)
 {
-	print_int("the mind - sq_size ", sq_size, 0);
-	if (t)
+	// if (sq_size != 4)
+	// 	return ("error");
+	if (DEBUG_FT)
+	{
+		ft_putstr("the_mind");
 		print_char(" - tetri ", t->alpha, 0);
-	else
-		ft_putendl("\nerror : no tetri");
-	print_int(" - offset ", offset, 1);
+		print_int(" - offset ", offset, 1);
+	}
+	if (DEBUG_PLACEMENT)
+	{
+		print_int(" - sq_size ", sq_size, 0);
+	}
 
 	if (offset == -1)
 	{
+		if (DEBUG_PLACEMENT)
+		{
+			// ft_putstr(square);
+			print_char("old alpha ", t->alpha, 1);
+			print_int("buggy offset ", offset, 1);
+			print_char("1st char ", square[offset + 1], 1);
+		}
 		while (square[++offset] != t->alpha)
-			++offset;
-		clean_tetri(square, sq_size, t);
+			;
+		if (DEBUG_PLACEMENT)
+			print_int("old offset ", offset, 1);
+		if (DEBUG_FT)
+			ft_putendl("\tthe_mind cleaning\n");
+		if (DEBUG_FT)
+		{
+			print_char("before cleaning ", t->alpha, 1);
+			ft_putendl(square);
+		}
+		clean_tetri(square, sq_size, t, offset);
+		if (DEBUG_FT)
+		{
+			ft_putendl("after cleaning");
+			ft_putendl(square);
+		}
 		if (++offset < ft_strlen(square))
+		{
+			if (DEBUG_FT)
+				ft_putendl("\tthe_mind -> the_mind - prev char");
 			return (the_mind(square, sq_size, t, offset));
+		}
 	}
+	if (DEBUG_FT)
+		ft_putendl("\tthe_mind -> try_place_tetri");
 	if (try_place_tetri(square, sq_size, t, offset))
 	{
-		ft_putendl("the_mind returning place_tetri");
+		if (DEBUG_FT)
+			ft_putendl("\tthe_mind -> place_tetri");
 		return (place_tetri(square, sq_size, t, offset));
 	}
 	if (offset < ft_strlen(square))
 	{
-		ft_putendl("the_mind returning the_mind");
-		return (the_mind(square, sq_size, t->next, 0));
+		if (DEBUG_FT)
+			ft_putendl("\tthe_mind -> the_mind - inc offset");
+		return (the_mind(square, sq_size, t, ++offset));
 	}
 	if (!(t->prev))
 		return ("too small");
-	ft_putendl("the_mind returning the_mind");
+	if (DEBUG_FT)
+		ft_putendl("\tthe_mind -> the_mind - return to prev tetri");
 	return (the_mind(square, sq_size, t->prev, -1));
 }
 
