@@ -6,7 +6,7 @@
 /*   By: pichrist <pichrist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/22 19:42:30 by pichrist          #+#    #+#             */
-/*   Updated: 2017/04/19 21:16:54 by pichrist         ###   ########.fr       */
+/*   Updated: 2017/04/26 04:31:17 by pichrist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	find_tetri_sub(t_tetri **t, int *block_read, int *off_read)
 {
-	ft_putendl("new tetri");
 	(*t)->next = create_tetri();
 	(*t)->next->prev = *t;
 	(*t) = (*t)->next;
@@ -35,26 +34,59 @@ void	find_tetri_quad(int *i, int *j, t_tetri *t, int *block_read)
 	t->block[*block_read][1] = *j;
 }
 
+t_tetri	*push_left_tetri(t_tetri *first, t_tetri *t)
+{
+	int i;
+	int again;
+
+	i = -1;
+	again = 1;
+	while (again)
+	{
+		if (again > 1)
+		{
+			i = -1;
+			while (++i < 4)
+				t->block[i][0] -= 1;
+		}
+		else
+			++again;
+		i = -1;
+		while (++i < 4)
+			if (t->block[i][0] == 0)
+				again = 0;
+	}
+	if (t->next)
+		return (push_left_tetri(first, t->next));
+	return (first);
+}
+
 t_tetri	*push_up_tetri(t_tetri *first, t_tetri *t)
 {
 	int i;
-	int ok;
+	int again;
 
 	i = -1;
-	ok = 0;
-	while (++i < 4)
-		if (t->block[i][1] == 0)
-			ok = 1;
-		if (!ok)
+	again = 1;
+	while (again)
+	{
+		if (again > 1)
 		{
 			i = -1;
 			while (++i < 4)
 				t->block[i][1] -= 1;
 		}
-		if (t->next)
-			return (push_up_tetri(first, t->next));
-		return (first);
+		else
+			++again;
+		i = -1;
+		while (++i < 4)
+			if (t->block[i][1] == 0)
+				again = 0;
 	}
+	if (t->next)
+		return (push_up_tetri(first, t->next));
+	return (push_left_tetri(first, first));
+}
 
 t_tetri	*find_tetri(char *file_content, int i, int j, int block_read)
 {
@@ -70,7 +102,8 @@ t_tetri	*find_tetri(char *file_content, int i, int j, int block_read)
 	{
 		if (!(j % 4) && j > 0)
 		{
-			find_tetri_sub(&t, &block_read, &off_read);
+			t_tetri **u = &t;
+			find_tetri_sub(u, &block_read, &off_read);
 			find_tetri_tri(&i, &j);
 		}
 		if (file_content[i + j * 5 + off_read] == '#')

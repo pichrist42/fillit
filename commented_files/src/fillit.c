@@ -6,7 +6,7 @@
 /*   By: pichrist <pichrist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/14 23:41:20 by pichrist          #+#    #+#             */
-/*   Updated: 2017/04/22 09:54:29 by pichrist         ###   ########.fr       */
+/*   Updated: 2017/04/26 03:14:42 by pichrist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,11 @@ void	tetri_lstiter(t_tetri *lst, void (*f)(t_tetri *elem))
 	}
 }
 
-int count = 0;
-void	display_tetris(t_tetri *t)
+void	display_tetri(t_tetri *t)
 {
 	if (DEBUG)
 	{
-		print_int("tetri nb ", count++, 0);
-		print_char(" : ", t->alpha, 1);
+		print_char("", t->alpha, 1);
 		for (int i = 0; i < 4; ++i)
 		{
 			print_int("(", t->block[i][0], 0);
@@ -62,7 +60,7 @@ void	stuff(char *file_content, size_t sq_size, char *square)
 	exit_code = 0;
 	first = find_tetri(file_content, 0, 0, -1);
 	
-	// tetri_lstiter(first, *display_tetris);
+	// tetri_lstiter(first, *display_tetri);
 	// ft_putendl("");
 /*
 	while (t->next)
@@ -97,8 +95,8 @@ void	stuff(char *file_content, size_t sq_size, char *square)
 	if (!exit_code)
 		ft_putendl("Error during the resolution of the problem.");
 	else
-		// display_square(square);
-		printf("\nend\n");
+		display_square(square);
+		print_str(0, "\nend", 1);
 }
 
 int		main(int ac, char **av)

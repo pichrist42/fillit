@@ -6,7 +6,7 @@
 /*   By: pichrist <pichrist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/14 23:41:20 by pichrist          #+#    #+#             */
-/*   Updated: 2017/04/19 18:53:50 by pichrist         ###   ########.fr       */
+/*   Updated: 2017/04/26 04:29:57 by pichrist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,19 @@
 
 void	stuff(char *file_content, size_t sq_size, char *square)
 {
-	t_tetri	*t;
+	t_tetri	*first;
 	int		exit_code;
 	int		d;
 
 	d = 0;
 	exit_code = 0;
-	t = find_tetri(file_content, 0, 0, -1);
-	while (!exit_code && !d++)
+	first = find_tetri(file_content, 0, 0, -1);
+	while (!exit_code)
 	{
-		square = gen_square(++sq_size);
-		square = the_mind(square, t, sq_size);
-		exit_code = ft_strncmp(square, "too small", \
-ft_strlen("too small"));
+		sq_size = (++d > 1) ? ++sq_size : sq_size;
+		square = gen_square(sq_size);
+		square = the_mind(square, sq_size, first, 0);
+		exit_code = ft_strncmp(square, "too small", ft_strlen("too small"));
 	}
 	if (!exit_code)
 		ft_putendl("Error during the resolution of the problem.");
