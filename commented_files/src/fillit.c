@@ -6,7 +6,7 @@
 /*   By: pichrist <pichrist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/14 23:41:20 by pichrist          #+#    #+#             */
-/*   Updated: 2017/04/26 03:14:42 by pichrist         ###   ########.fr       */
+/*   Updated: 2017/04/30 18:28:10 by flseaill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,14 +111,14 @@ int		main(int ac, char **av)
 	else
 	{
 		if ((file_content = read_file(av[1])))
-			if (!parse_file(file_content))
+			// La condition ne securise pas l'envoie de map vides pour le moment
+			if (parse_file(file_content))
 			{
 				sq_size = find_square_size(file_content);
 				stuff(file_content, sq_size, square);
 			}
 			else
-				ft_putendl(\
-"Error : file is in an incorrect format. Please refer to the program notice.");
+				ft_putendl("error");
 		else
 			ft_putendl("Error : file can't be read.");
 	}

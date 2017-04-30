@@ -1,0 +1,135 @@
+fillit_checker by agadhgad
+--- begin of invalid test ---
+invalid test 0 : [0;32mok[0m
+invalid test 1 : [0;32mok[0m
+invalid test 2 : [0;32mok[0m
+invalid test 3 : [0;31mfail :/[0m
+for the file error_3 (cat -e):
+....$
+....$
+..##$
+..##$
+$
+..#.$
+..#.$
+.##.$
+....$
+$
+your output is:
+AAB
+AAB
+ABB
+invalid test 4 : [0;32mok[0m
+invalid test 5 : [0;32mok[0m
+invalid test 6 : [0;32mok[0m
+invalid test 7 : [0;32mok[0m
+invalid test 8 : [0;32mok[0m
+invalid test 9 : [0;32mok[0m
+invalid test 10 : [0;32mok[0m
+invalid test 11 : [0;32mok[0m
+invalid test 12 : [0;32mok[0m
+invalid test 13 : [0;32mok[0m
+invalid test 14 : [0;32mok[0m
+invalid test 15 : [0;32mok[0m
+invalid test 16 : [0;32mok[0m
+invalid test 17 : [0;31mfail :/[0m
+for the file error_17 (cat -e):
+.#..$
+.##.$
+..#.$
+....$
+$
+.#..$
+.#..$
+..#.$
+..#.$
+your output is:
+A.B.
+AAB.
+.A.B
+...B
+invalid test 18 : [0;32mok[0m
+invalid test 19 : [0;31mfail :/[0m
+for the file error_19 (cat -e):
+....$
+.##.$
+....$
+.##.$
+$
+....$
+....$
+.###$
+...#$
+your output is:
+AA.
+BBB
+AAB
+invalid test 20 : [0;32mok[0m
+invalid test 21 : [0;32mok[0m
+invalid test 22 : [0;32mok[0m
+invalid test 23 : [0;31mfail :/[0m
+for the file error_23 (cat -e):
+your output is:
+
+invalid test 24 : [0;31mfail :/[0m
+for the file error_24 (cat -e):
+.#..$
+.##.$
+..#.$
+....$
+$
+$
+.#..$
+.#..$
+.#..$
+.#..$
+your output is:
+AAA
+AA.
+.A.
+invalid test 25 : [0;31mfail :/[0m
+for the file error_25 (cat -e):
+....$
+##.#$
+...#$
+....$
+your output is:
+.AA
+A..
+A..
+--- end of invalid test ---
+[0;31minvalid test failed, 20 / 26[0m
+--- begin of valid test ---
+valid test 0 : [0;32mok[0m
+valid test 1 : [0;32mok[0m
+valid test 2 : [0;32mok[0m
+valid test 3 : [0;32mok[0m
+valid test 4 : [0;32mok[0m
+valid test 5 : [0;32mok[0m
+valid test 6 : [0;32mok[0m
+valid test 7 : [0;32mok[0m
+valid test 8 : [0;32mok[0m
+valid test 9 : [0;32mok[0m
+valid test 10 : [0;32mok[0m
+valid test 11 : [0;32mok[0m
+valid test 12 : [0;32mok[0m
+valid test 13 : [0;32mok[0m
+valid test 14 : [0;32mok[0m
+valid test 15 : [0;32mok[0m
+valid test 16 : [0;32mok[0m
+valid test 17 : [0;32mok[0m
+valid test 18 : [0;32mok[0m
+valid test 19 : [0;31mfail :/[0m
+WHAT IS EXPECTED:
+.A.BBCC
+AABBCCD
+EAF.GGD
+E.FFGGD
+EEHFI.D
+..H.II.
+..HHI..
+YOUR OUTPUT:
+
+--- end of valid test ---
+[0;31mvalid test failed, 19 / 20[0m
+NOTE: [0;31m39 / 46[0m

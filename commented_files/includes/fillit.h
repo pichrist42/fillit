@@ -6,7 +6,7 @@
 /*   By: pichrist <pichrist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/12 15:54:50 by pichrist          #+#    #+#             */
-/*   Updated: 2017/04/26 03:25:47 by pichrist         ###   ########.fr       */
+/*   Updated: 2017/04/30 15:36:10 by flseaill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,11 +72,11 @@ void				display_square(char *square);
 /*
 ** DEBUG
 */
-# define DEBUG 1
+# define DEBUG 0
 # define DEBUG_POS 0
-# define DEBUG_PLACEMENT 1
-# define DEBUG_SQUARE 1
-# define DEBUG_FT 1
+# define DEBUG_PLACEMENT 0
+# define DEBUG_SQUARE 0
+# define DEBUG_FT 0
 # define DEBUG_CREATION_DETAILLED 0
 # define DEBUG_CREATION_SPECIFIC 0
 
