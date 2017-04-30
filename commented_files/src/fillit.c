@@ -6,7 +6,7 @@
 /*   By: pichrist <pichrist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/14 23:41:20 by pichrist          #+#    #+#             */
-/*   Updated: 2017/04/30 18:28:10 by flseaill         ###   ########.fr       */
+/*   Updated: 2017/04/30 20:43:59 by pichrist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,8 @@ void	stuff(char *file_content, size_t sq_size, char *square)
 		ft_putendl("Error during the resolution of the problem.");
 	else
 		display_square(square);
-		print_str(0, "\nend", 1);
+		if (DEBUG_FT)
+			print_str(0, "\nend", 1);
 }
 
 int		main(int ac, char **av)
@@ -111,16 +112,22 @@ int		main(int ac, char **av)
 	else
 	{
 		if ((file_content = read_file(av[1])))
-			// La condition ne securise pas l'envoie de map vides pour le moment
+		{
 			if (parse_file(file_content))
 			{
+				ft_putendl("file parsed and valid");
 				sq_size = find_square_size(file_content);
 				stuff(file_content, sq_size, square);
 			}
-			else
+			else{
+				print_str(1, "coucou2", 1);
 				ft_putendl("error");
-		else
-			ft_putendl("Error : file can't be read.");
+			}
+		}
+		else{
+			print_str(1, "coucou", 1);
+			ft_putendl("error");
+		}
 	}
 	return (0);
 }
