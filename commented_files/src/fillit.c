@@ -6,7 +6,7 @@
 /*   By: pichrist <pichrist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/14 23:41:20 by pichrist          #+#    #+#             */
-/*   Updated: 2017/04/30 20:43:59 by pichrist         ###   ########.fr       */
+/*   Updated: 2017/04/30 21:58:49 by pichrist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,17 +115,17 @@ int		main(int ac, char **av)
 		{
 			if (parse_file(file_content))
 			{
-				ft_putendl("file parsed and valid");
+				// ft_putendl("file parsed and valid");
 				sq_size = find_square_size(file_content);
 				stuff(file_content, sq_size, square);
 			}
 			else{
-				print_str(1, "coucou2", 1);
+				// print_str(1, "coucou2", 1);
 				ft_putendl("error");
 			}
 		}
 		else{
-			print_str(1, "coucou", 1);
+			// print_str(1, "coucou", 1);
 			ft_putendl("error");
 		}
 	}

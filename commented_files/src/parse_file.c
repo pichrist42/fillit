@@ -6,7 +6,7 @@
 /*   By: pichrist <pichrist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/22 19:45:30 by pichrist          #+#    #+#             */
-/*   Updated: 2017/04/30 21:05:11 by pichrist         ###   ########.fr       */
+/*   Updated: 2017/04/30 21:59:27 by pichrist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,7 +125,7 @@ int		parse_file(char *file_content)
 		// Si on a read le contenu d'une piece, on l'envoie a la fonction check pcs
 		if (i != 0 && !(i % 21))
 		{
-			print_int("tetri ", j, 1);
+			// print_int("tetri ", j, 1);
 			if (!(valid_pcs(ft_strsub(file_content, (j * 21), 21))))
 				return (0);
 			++j;
