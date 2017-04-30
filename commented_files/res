@@ -1,11 +1,40 @@
 fillit_checker by agadhgad
 --- begin of invalid test ---
 invalid test 0 : \c
-\033[0;32mok\033[0m
+\033[0;31mfail :/\033[0m
+for the file error_0 (cat -e):
+....$
+###$
+..#.$
+....$
+$
+..#.$
+.###$
+....$
+....$
+your output is:
+error 5 : 0 - i 0
+error
 invalid test 1 : \c
-\033[0;32mok\033[0m
+\033[0;31mfail :/\033[0m
+for the file error_1 (cat -e):
+...$
+your output is:
+error 5 : 0 - i 0
+error
 invalid test 2 : \c
-\033[0;32mok\033[0m
+\033[0;31mfail :/\033[0m
+for the file error_2 (cat -e):
+....$
+....$
+....$
+####$
+$
+....$
+....$
+your output is:
+error 5 : 0 - i 0
+error
 invalid test 3 : \c
 \033[0;31mfail :/\033[0m
 for the file error_3 (cat -e):
@@ -20,49 +49,248 @@ $
 ....$
 $
 your output is:
-AAB
-AAB
-ABB
+error 5 : 0 - i 0
+error
 invalid test 4 : \c
-\033[0;32mok\033[0m
+\033[0;31mfail :/\033[0m
+for the file error_4 (cat -e):
+..#.$
+..#.$
+..#.$
+..#.$
+$
+# #.$
+#...$
+....$
+....$
+your output is:
+error 5 : 0 - i 0
+error
 invalid test 5 : \c
-\033[0;32mok\033[0m
+\033[0;31mfail :/\033[0m
+for the file error_5 (cat -e):
+....$
+....$
+....$
+....$
+your output is:
+error 5 : 0 - i 0
+error
 invalid test 6 : \c
-\033[0;32mok\033[0m
+\033[0;31mfail :/\033[0m
+for the file error_6 (cat -e):
+A...$
+A...$
+A...$
+A...$
+your output is:
+error 3
+error
 invalid test 7 : \c
-\033[0;32mok\033[0m
+\033[0;31mfail :/\033[0m
+for the file error_7 (cat -e):
+..#.$
+.#..$
+.#..$
+..#.$
+$
+..#.$
+.##.$
+..#.$
+....$
+your output is:
+error 5 : 0 - i 0
+error
 invalid test 8 : \c
-\033[0;32mok\033[0m
+\033[0;31mfail :/\033[0m
+for the file error_8 (cat -e):
+..#.$
+..#.$
+..#.$
+....$
+your output is:
+error 5 : 0 - i 0
+error
 invalid test 9 : \c
-\033[0;32mok\033[0m
+\033[0;31mfail :/\033[0m
+for the file error_9 (cat -e):
+.#..$
+.#..$
+.#..$
+.#..$
+..#.$
+..#.$
+..#.$
+..#.$
+your output is:
+error 5 : 0 - i 0
+error
 invalid test 10 : \c
-\033[0;32mok\033[0m
+\033[0;31mfail :/\033[0m
+for the file error_10 (cat -e):
+.#..$
+.##.$
+.#..#...$
+#...$
+#...$
+#...$
+your output is:
+error 5 : 0 - i 0
+error
 invalid test 11 : \c
-\033[0;32mok\033[0m
+\033[0;31mfail :/\033[0m
+for the file error_11 (cat -e):
+.#..$
+##.. $
+.#..$
+....$
+your output is:
+error 5 : 0 - i 0
+error
 invalid test 12 : \c
-\033[0;32mok\033[0m
+\033[0;31mfail :/\033[0m
+for the file error_12 (cat -e):
+####$
+####$
+####$
+####$
+your output is:
+error 5 : 2 - i 0
+error
 invalid test 13 : \c
-\033[0;32mok\033[0m
+\033[0;31mfail :/\033[0m
+for the file error_13 (cat -e):
+##...$
+.#..$
+.#..$
+....$
+your output is:
+error 5 : 1 - i 0
+error
 invalid test 14 : \c
-\033[0;32mok\033[0m
+\033[0;31mfail :/\033[0m
+for the file error_14 (cat -e):
+.$
+your output is:
+error 5 : 0 - i 0
+error
 invalid test 15 : \c
-\033[0;32mok\033[0m
+\033[0;31mfail :/\033[0m
+for the file error_15 (cat -e):
+..#...#...#...#.$
+your output is:
+error 5 : 0 - i 0
+error
 invalid test 16 : \c
-\033[0;32mok\033[0m
+\033[0;31mfail :/\033[0m
+for the file error_16 (cat -e):
+....$
+.##.$
+..#.$
+..#.$
+....$
+your output is:
+error 5 : 0 - i 0
+error
 invalid test 17 : \c
-\033[0;32mok\033[0m
+\033[0;31mfail :/\033[0m
+for the file error_17 (cat -e):
+.#..$
+.##.$
+..#.$
+....$
+$
+.#..$
+.#..$
+..#.$
+..#.$
+your output is:
+error 5 : 0 - i 0
+error
 invalid test 18 : \c
-\033[0;32mok\033[0m
+\033[0;31mfail :/\033[0m
+for the file error_18 (cat -e):
+..#.$
+....$
+.##.$
+.#..$
+$
+....$
+###.$
+.#..$
+....$
+your output is:
+error 5 : 0 - i 0
+error
 invalid test 19 : \c
-\033[0;32mok\033[0m
+\033[0;31mfail :/\033[0m
+for the file error_19 (cat -e):
+....$
+.##.$
+....$
+.##.$
+$
+....$
+....$
+.###$
+...#$
+your output is:
+error 5 : 0 - i 0
+error
 invalid test 20 : \c
-\033[0;32mok\033[0m
+\033[0;31mfail :/\033[0m
+for the file error_20 (cat -e):
+####$
+....$
+....$
+....$
+####$
+....$
+....$
+....$
+your output is:
+error 5 : 1 - i 0
+error
 invalid test 21 : \c
-\033[0;32mok\033[0m
+\033[0;31mfail :/\033[0m
+for the file error_21 (cat -e):
+####$
+....$
+....$
+....$
+$
+####$
+....$
+....$
+....$
+####$
+....$
+....$
+....$
+your output is:
+error 5 : 1 - i 0
+error
 invalid test 22 : \c
-\033[0;32mok\033[0m
+\033[0;31mfail :/\033[0m
+for the file error_22 (cat -e):
+####$
+....$
+....$
+....$
+....$
+$
+####$
+....$
+....$
+your output is:
+error 5 : 1 - i 0
+error
 invalid test 23 : \c
-\033[0;32mok\033[0m
+\033[0;31mfail :/\033[0m
+for the file error_23 (cat -e):
+your output is:
+error 3
+error
 invalid test 24 : \c
 \033[0;31mfail :/\033[0m
 for the file error_24 (cat -e):
@@ -77,52 +305,216 @@ $
 .#..$
 .#..$
 your output is:
-AAA
-AA.
-.A.
+error 5 : 0 - i 0
+error
 invalid test 25 : \c
-\033[0;32mok\033[0m
+\033[0;31mfail :/\033[0m
+for the file error_25 (cat -e):
+....$
+##.#$
+...#$
+....$
+your output is:
+error 5 : 0 - i 0
+error
 --- end of invalid test ---
-\033[0;31minvalid test failed, 24 / 26\033[0m
+\033[0;31minvalid test failed, 0 / 26\033[0m
 --- begin of valid test ---
 valid test 0 : \c
-\033[0;32mok\033[0m
+\033[0;31mfail :/\033[0m
+WHAT IS EXPECTED:
+ABB.
+ABB.
+A...
+A...
+YOUR OUTPUT:
+error 5 : 0 - i 0
+error
 valid test 1 : \c
-\033[0;32mok\033[0m
+\033[0;31mfail :/\033[0m
+WHAT IS EXPECTED:
+AABB
+.A.B
+.A.B
+....
+YOUR OUTPUT:
+error 5 : 0 - i 0
+error
 valid test 2 : \c
-\033[0;32mok\033[0m
+\033[0;31mfail :/\033[0m
+WHAT IS EXPECTED:
+AACC
+AA.C
+BB.C
+BB..
+YOUR OUTPUT:
+error 5 : 0 - i 0
+error
 valid test 3 : \c
-\033[0;32mok\033[0m
+\033[0;31mfail :/\033[0m
+WHAT IS EXPECTED:
+.A.B.
+AABB.
+.A.B.
+CC...
+CC...
+YOUR OUTPUT:
+error 5 : 0 - i 0
+error
 valid test 4 : \c
-\033[0;32mok\033[0m
+\033[0;31mfail :/\033[0m
+WHAT IS EXPECTED:
+A..B.
+AABB.
+AC.B.
+CC...
+.C...
+YOUR OUTPUT:
+error 5 : 0 - i 0
+error
 valid test 5 : \c
-\033[0;32mok\033[0m
+\033[0;31mfail :/\033[0m
+WHAT IS EXPECTED:
+ABDDD
+AB..D
+AB...
+AB...
+CCCC.
+YOUR OUTPUT:
+error 5 : 1 - i 0
+error
 valid test 6 : \c
-\033[0;32mok\033[0m
+\033[0;31mfail :/\033[0m
+WHAT IS EXPECTED:
+AAC.
+AAC.
+..CC
+BBBB
+YOUR OUTPUT:
+error 5 : 0 - i 0
+error
 valid test 7 : \c
-\033[0;32mok\033[0m
+\033[0;31mfail :/\033[0m
+WHAT IS EXPECTED:
+BBB
+B.A
+AAA
+YOUR OUTPUT:
+error 5 : 0 - i 0
+error
 valid test 8 : \c
-\033[0;32mok\033[0m
+\033[0;31mfail :/\033[0m
+WHAT IS EXPECTED:
+error
+YOUR OUTPUT:
+error 5 : 0 - i 0
+error
 valid test 9 : \c
-\033[0;32mok\033[0m
+\033[0;31mfail :/\033[0m
+WHAT IS EXPECTED:
+CC.B
+ACCB
+A.BB
+AA..
+YOUR OUTPUT:
+error 5 : 0 - i 0
+error
 valid test 10 : \c
-\033[0;32mok\033[0m
+\033[0;31mfail :/\033[0m
+WHAT IS EXPECTED:
+ACC.
+AACC
+A.B.
+BBB.
+YOUR OUTPUT:
+error 5 : 0 - i 0
+error
 valid test 11 : \c
-\033[0;32mok\033[0m
+\033[0;31mfail :/\033[0m
+WHAT IS EXPECTED:
+ACC..
+AACCB
+ADBBB
+.DD.E
+.DEEE
+YOUR OUTPUT:
+error 5 : 0 - i 0
+error
 valid test 12 : \c
-\033[0;32mok\033[0m
+\033[0;31mfail :/\033[0m
+WHAT IS EXPECTED:
+A..C
+AAAC
+BB.C
+BB.C
+YOUR OUTPUT:
+error 5 : 0 - i 0
+error
 valid test 13 : \c
-\033[0;32mok\033[0m
+\033[0;31mfail :/\033[0m
+WHAT IS EXPECTED:
+BBB.
+..BC
+A.CC
+AAAC
+YOUR OUTPUT:
+error 5 : 0 - i 0
+error
 valid test 14 : \c
-\033[0;32mok\033[0m
+\033[0;31mfail :/\033[0m
+WHAT IS EXPECTED:
+AABB
+AABB
+CC..
+CC..
+YOUR OUTPUT:
+error 5 : 2 - i 0
+error
 valid test 15 : \c
-\033[0;32mok\033[0m
+\033[0;31mfail :/\033[0m
+WHAT IS EXPECTED:
+DDAA
+CDDA
+CCCA
+BBBB
+YOUR OUTPUT:
+error 5 : 0 - i 0
+error
 valid test 16 : \c
-\033[0;32mok\033[0m
+\033[0;31mfail :/\033[0m
+WHAT IS EXPECTED:
+ABBBB.
+ACCCEE
+AFFCEE
+A.FFGG
+HHHDDG
+.HDD.G
+YOUR OUTPUT:
+error 5 : 0 - i 0
+error
 valid test 17 : \c
-\033[0;32mok\033[0m
+\033[0;31mfail :/\033[0m
+WHAT IS EXPECTED:
+.AAB.
+AABBC
+D.BCC
+DD..C
+D....
+YOUR OUTPUT:
+error 5 : 0 - i 0
+error
 valid test 18 : \c
-\033[0;32mok\033[0m
+\033[0;31mfail :/\033[0m
+WHAT IS EXPECTED:
+.ABBB.
+AAC.BG
+A.CCGG
+E.CDG.
+EDDDF.
+EEFFF.
+YOUR OUTPUT:
+error 5 : 0 - i 0
+error
 valid test 19 : \c
 \033[0;31mfail :/\033[0m
 WHAT IS EXPECTED:
@@ -134,7 +526,8 @@ EEHFI.D
 ..H.II.
 ..HHI..
 YOUR OUTPUT:
-
+error 5 : 0 - i 0
+error
 --- end of valid test ---
-\033[0;31mvalid test failed, 19 / 20\033[0m
-NOTE: \033[0;31m43 / 46\033[0m
+\033[0;31mvalid test failed, 0 / 20\033[0m
+NOTE: \033[0;31m0 / 46\033[0m
