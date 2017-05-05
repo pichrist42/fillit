@@ -72,7 +72,7 @@ void				display_square(char *square);
 /*
 ** DEBUG
 */
-# define DEBUG 1
+# define DEBUG 0
 # define DEBUG_READ 0
 # define DEBUG_CONTENT 0
 # define DEBUG_COUNT 0
@@ -83,6 +83,9 @@ void				display_square(char *square);
 # define DEBUG_FT 0
 # define DEBUG_CREATION_DETAILLED 0
 # define DEBUG_CREATION_SPECIFIC 0
+# define PCS_ELEM '#'
+# define PCS_SPACE '.'
+# define PCS_RTTL '\n'
 
 void				print_int(char *s, int v, int end);
 void				print_char(char *s, char c, int end);
