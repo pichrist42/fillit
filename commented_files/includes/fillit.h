@@ -37,15 +37,24 @@ t_tetri				*create_tetri();
 */
 t_tetri				*find_tetri(char *file_content, int i, int j, int \
 	block_read);
-t_tetri				*push_up_tetri(t_tetri *first, t_tetri *t);
-char				*the_mind(char *square, size_t sq_size, t_tetri *t, \
-	int offset);
+
+/*
+**	CARE
+**
+**	a few ft missing
+**
+*/
+
+// t_tetri				*push_up_tetri(t_tetri *first, t_tetri *t);
+// char				*the_mind(char *square, size_t sq_size, t_tetri *t, \
+// 	int offset);
 int					formula(size_t sq_size, t_tetri *t, int i);
-int					try_place_tetri(char *square, int sq_size, t_tetri *t, \
-	int offset);
-char	*place_tetri(char *square, int sq_size, t_tetri *t, int offset);
-void				clean_tetri(char *square, size_t sq_size, t_tetri *t, int \
-	offset);
+// int					try_place_tetri(char *square, int sq_size, t_tetri *t, \
+// 	int offset);
+// char	*place_tetri(char *square, int sq_size, t_tetri *t, int offset);
+// void				clean_tetri(char *square, size_t sq_size, t_tetri *t, int \
+// 	offset);
+char	*the_mind(char *square, size_t square_size, t_tetri *t);
 
 /*
 ** Allocate the square holding the results of the program. Returns the
@@ -72,7 +81,7 @@ void				display_square(char *square);
 /*
 ** DEBUG
 */
-# define DEBUG 0
+# define DEBUG 1
 # define DEBUG_READ 0
 # define DEBUG_CONTENT 0
 # define DEBUG_COUNT 0

@@ -12,56 +12,37 @@
 
 #include "../includes/fillit.h"
 
-void	tetri_lstiter(t_tetri *lst, void (*f)(t_tetri *elem))
-{
-	if (lst && f)
+	void	tetri_lstiter(t_tetri *lst, void (*f)(t_tetri *elem))
 	{
-		// while (lst)
-		// {
-		// 	f(lst);
-		// 	lst = lst->next;
-		// }
-
-		// f(lst->prev);
-		f(lst);
-		int stop = 0;
-		while (!stop)
-			if (lst->next)
-			{
-				lst = lst->next;
-				f(lst);
-			}
-			else
-				stop = 1;
-	}
-}
-
-void	display_tetri(t_tetri *t)
-{
-	if (DEBUG)
-	{
-		print_char("", t->alpha, 1);
-		for (int i = 0; i < 4; ++i)
+		if (lst && f)
 		{
-			print_int("(", t->block[i][0], 0);
-			print_int(" ; ", t->block[i][1], 0);
-			ft_putendl(")");
+			f(lst);
+			int stop = 0;
+			while (!stop)
+				if (lst->next)
+				{
+					lst = lst->next;
+					f(lst);
+				}
+				else
+					stop = 1;
 		}
 	}
-}
 
-void	stuff(char *file_content, size_t sq_size, char *square)
-{
-	t_tetri	*first;
-	int		exit_code;
-	int		d;
+	void	display_tetri(t_tetri *t)
+	{
+		if (DEBUG)
+		{
+			print_char("", t->alpha, 1);
+			for (int i = 0; i < 4; ++i)
+			{
+				print_int("(", t->block[i][0], 0);
+				print_int(" ; ", t->block[i][1], 0);
+				ft_putendl(")");
+			}
+		}
+	}
 
-	d = 0;
-	exit_code = 0;
-	first = find_tetri(file_content, 0, 0, -1);
-	
-	// tetri_lstiter(first, *display_tetri);
-	// ft_putendl("");
 /*
 	while (t->next)
 	{
@@ -85,11 +66,25 @@ void	stuff(char *file_content, size_t sq_size, char *square)
 		ft_putendl("\nover");
 	}
 */
+void	stuff(char *file_content, size_t sq_size, char *square)
+{
+	t_tetri	*first;
+	int		exit_code;
+	int		d;
+
+	d = 0;
+	exit_code = 0;
+	first = find_tetri(file_content, 0, 0, -1);
+
+	tetri_lstiter(first, *display_tetri);
+	ft_putendl("");
+	
+
 	while (!exit_code)
 	{
 		sq_size = (++d > 1) ? ++sq_size : sq_size;
 		square = gen_square(sq_size);
-		square = the_mind(square, sq_size, first, 0);
+		square = the_mind(square, sq_size, first);
 		exit_code = ft_strncmp(square, "too small", ft_strlen("too small"));
 	}
 	if (!exit_code)
