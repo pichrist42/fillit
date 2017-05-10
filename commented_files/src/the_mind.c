@@ -25,17 +25,18 @@ char	*the_mind(char *square, size_t square_size, t_tetri *t){
 	int i = -1;
 
 	rollback = 0;
-	while (1 && i < 0){
-		ft_putstr("plante cette fois ?\n");
+	while (1){
+		// ft_putstr("plante cette fois ?\n");
+		// getchar();
 		print_int("loop ", ++i, 1);
 		print_char("placing tetri ", t->alpha, 1);
-		if (i > 0)
-			getchar();
 		// clean
 		if (rollback){
-			print_str(1, "rollback", 1);
+			print_str(1, "calculating rollback", 1);
 			offset = -1;
-			while (++offset && rollback){
+			while (rollback){
+				++offset;
+				print_int("\trllbcking with offset ", offset, 1);
 				rollback = 0;
 				block_nb = -1;
 				while (++block_nb < 4 && !rollback)
@@ -47,11 +48,13 @@ char	*the_mind(char *square, size_t square_size, t_tetri *t){
 			while (square[++block_nb])
 				if (square[block_nb] == t->alpha)
 					square[block_nb] = '.';
+			++offset;
+		}else{
+			ft_putendl("\toffset reset");
+			offset = -1;
 		}
 		// try_place_tetri
-		if (!rollback)
-			offset = -1;
-		print_int("\toffset ", offset, 1);
+		print_int("\toffset b4 inc ", offset, 1);
 		int j = -1;
 		int k = -1;
 		found_place = 0;
@@ -60,15 +63,19 @@ char	*the_mind(char *square, size_t square_size, t_tetri *t){
 			block_nb = -1;
 			found_place = 1;
 			k = -1;
+			print_int("\t\ttrying offset ", offset, 1);
 			while (++block_nb < 4 && found_place){
 				// print_int("k ", ++k, 1);
 				if (square[formula(square_size, t, block_nb) + offset] != '.')
 					found_place = 0;
 				// print_int("found_place ", found_place, 1);
 			}
-		}	
+		}
 		// place_tetri
-		print_int("\tcan place tetri ", found_place, 1);
+		if (found_place)
+			print_str(1, "place tetri", 1);
+		else
+			print_str(1, "no tetri placed", 1);
 		if (found_place){
 			block_nb = -1;
 			--offset;
@@ -83,18 +90,17 @@ char	*the_mind(char *square, size_t square_size, t_tetri *t){
 			t = t->next;
 			print_str(1, "tetri placed", 1);
 			print_str(0, square, 1);
-			ft_putstr("plante ?\n");
-			// continue;
-		}else{
-			// coudlnt place tetri
-			if ((!t->prev)){
-				print_str(0, "too small", 1);
-				return ("too small");
-			}
-			rollback = 1;
-			t = t->prev;
-			print_str(1,"will rllbk", 1);
+			// ft_putstr("plante ?\n");
+			continue;
 		}
+		// coudlnt place tetri
+		if ((!t->prev)){
+			print_str(0, "too small", 1);
+			return ("too small");
+		}
+		rollback = 1;
+		t = t->prev;
+		print_str(1,"will rllbk", 1);
 	}
 }
 
