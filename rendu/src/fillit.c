@@ -6,26 +6,27 @@
 /*   By: pichrist <pichrist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/14 23:41:20 by pichrist          #+#    #+#             */
-/*   Updated: 2017/04/26 04:29:57 by pichrist         ###   ########.fr       */
+/*   Updated: 2017/04/30 22:40:37 by pichrist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fillit.h"
 
-void	stuff(char *file_content, size_t sq_size, char *square)
+void	main_sub(char *file_content, size_t sq_size, char *square)
 {
 	t_tetri	*first;
 	int		exit_code;
-	int		d;
+	int		limiter;
 
-	d = 0;
+	limiter = 0;
 	exit_code = 0;
 	first = find_tetri(file_content, 0, 0, -1);
 	while (!exit_code)
 	{
-		sq_size = (++d > 1) ? ++sq_size : sq_size;
+		sq_size = (++limiter > 1) ? ++sq_size : sq_size;
 		square = gen_square(sq_size);
-		square = the_mind(square, sq_size, first, 0);
+		// square = the_mind(square, sq_size, first, 0);
+		square = the_mind(square, sq_size, first);
 		exit_code = ft_strncmp(square, "too small", ft_strlen("too small"));
 	}
 	if (!exit_code)
@@ -44,18 +45,15 @@ int		main(int ac, char **av)
 		ft_putendl(\
 			"Incorrect number of arguments.\nUsage : ./fillit file.txt");
 	else
-	{
 		if ((file_content = read_file(av[1])))
-			if (!parse_file(file_content))
+			if (parse_file(file_content))
 			{
 				sq_size = find_square_size(file_content);
-				stuff(file_content, sq_size, square);
+				main_sub(file_content, sq_size, square);
 			}
 			else
-				ft_putendl(\
-"Error : file is in an incorrect format. Please refer to the program notice.");
+				ft_putendl("error");
 		else
-			ft_putendl("Error : file can't be read.");
-	}
+			ft_putendl("error");
 	return (0);
 }

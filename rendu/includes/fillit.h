@@ -6,7 +6,7 @@
 /*   By: pichrist <pichrist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/12 15:54:50 by pichrist          #+#    #+#             */
-/*   Updated: 2017/04/19 18:34:29 by pichrist         ###   ########.fr       */
+/*   Updated: 2017/04/30 21:56:00 by pichrist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,31 @@ t_tetri				*create_tetri();
 ** Reads the tetrimino position from the input file and returns a t_tetri
 ** struct. Returns NULL in case of error.
 */
-t_tetri				*find_tetri(char *file_content, int i, int j, \
-	int block_read);
-t_tetri				*push_up_tetri(t_tetri *first, t_tetri *t);
-char				*the_mind(char *square, t_tetri *t, size_t sq_size);
+t_tetri				*find_tetri(char *file_content, int i, int j, int block_read);
+void				find_tetri_sub(t_tetri **t, int *block_read, int *off_read);
+void				find_tetri_tri(int *i, int *j);
+void				find_tetri_quad(int *i, int *j, t_tetri *t, int *block_read);
 
 /*
-** Allocate the square holding the results of the program. Returns the
+** Moves the tetriminos up or left on their own grid, in the struct. Calls 
+** itself until it has finished processing the whole struct, then returns the
+** first item.
+*/
+t_tetri				*offset_tetri(t_tetri *first, t_tetri *t, int way);
+
+/*
+**
+*/
+int					formula(size_t sq_size, t_tetri *t, int i);
+// int		the_mind_sub(char **square, size_t square_size, t_tetri *t, int rollback);
+// int		the_mind_tri(int offset, char *square, size_t square_size, t_tetri *t);
+// void	the_mind_quad(int offset, char **square, size_t square_size, t_tetri *t);
+// void	the_mind_quint(int *rollback, t_tetri **t, int value);
+// char				*the_mind(char *square, size_t square_size, t_tetri *t, int rollback);
+char				*the_mind(char *square, size_t square_size, t_tetri *t);
+
+/*
+** Allocates the square holding the results of the program. Returns the
 ** allocated memory or NULL if failed.
 */
 char				*gen_square(size_t sq_size);
@@ -52,14 +70,26 @@ char				*gen_square(size_t sq_size);
 size_t				find_square_size(char *file_content);
 
 /*
-** Check the file validity. Returns 0 in case of success.
+** Checks the file validity. Returns 1 in case of success.
 */
 int					parse_file(char *file_content);
+int					valid_pcs(char *pcs);
+int					valid_pcs_sub(char *pcs, int i, int *link, int *dot);
+int					valid_char(char to_check);
 
 /*
-** Returns the content of the file, NULL in case of error.
+** Reads the file and returns it's content, NULL in case of error.
 */
 char				*read_file(char *str);
+
+/*
+** Displays the result of the program.
+*/
 void				display_square(char *square);
+
+/*
+** Second part of the main function.
+*/
+void				main_sub(char *file_content, size_t sq_size, char *square);
 
 #endif

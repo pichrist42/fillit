@@ -26,7 +26,6 @@ char	*the_mind(char *square, size_t square_size, t_tetri *t){
 
 	rollback = 0;
 	while (1){
-		// ft_putstr("plante cette fois ?\n");
 		// getchar();
 		print_int("loop ", ++i, 1);
 		print_char("placing tetri ", t->alpha, 1);
@@ -36,7 +35,7 @@ char	*the_mind(char *square, size_t square_size, t_tetri *t){
 			offset = -1;
 			while (rollback){
 				++offset;
-				print_int("\trllbcking with offset ", offset, 1);
+				// print_int("\trllbcking with offset ", offset, 1);
 				rollback = 0;
 				block_nb = -1;
 				while (++block_nb < 4 && !rollback)
@@ -48,9 +47,9 @@ char	*the_mind(char *square, size_t square_size, t_tetri *t){
 			while (square[++block_nb])
 				if (square[block_nb] == t->alpha)
 					square[block_nb] = '.';
-			++offset;
+			// ++offset;
 		}else{
-			ft_putendl("\toffset reset");
+			print_str(1, "offset reset", 1);
 			offset = -1;
 		}
 		// try_place_tetri
@@ -63,7 +62,7 @@ char	*the_mind(char *square, size_t square_size, t_tetri *t){
 			block_nb = -1;
 			found_place = 1;
 			k = -1;
-			print_int("\t\ttrying offset ", offset, 1);
+			// print_int("\t\ttrying offset ", offset, 1);
 			while (++block_nb < 4 && found_place){
 				// print_int("k ", ++k, 1);
 				if (square[formula(square_size, t, block_nb) + offset] != '.')
@@ -90,7 +89,6 @@ char	*the_mind(char *square, size_t square_size, t_tetri *t){
 			t = t->next;
 			print_str(1, "tetri placed", 1);
 			print_str(0, square, 1);
-			// ft_putstr("plante ?\n");
 			continue;
 		}
 		// coudlnt place tetri
