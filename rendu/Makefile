@@ -6,7 +6,11 @@
 #    By: pichrist <pichrist@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/08/19 09:41:20 by pichrist          #+#    #+#              #
+<<<<<<< HEAD
 #    Updated: 2017/05/13 20:56:47 by flseaill         ###   ########.fr        #
+=======
+#    Updated: 2017/05/13 20:41:25 by pichrist         ###   ########.fr        #
+>>>>>>> a79cfa3faa917194a380661f248fbd6bf93772c7
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,7 +49,7 @@ LIB = $(addprefix $(LIB_PATH),$(LIB_NAME))
 all : $(NAME)
 
 $(NAME) :
-	@$(CC) $(SRC) $(LIB) -o $(NAME)
+	@$(CC) $(SRC) $(LIB) -o $(NAME) $(FLAGS)
 
 clean :
 	@rm -f $(OBJ)
@@ -54,5 +58,8 @@ fclean : clean
 	@rm -f $(NAME)
 
 re : fclean all
+<<<<<<< HEAD
 
 .PHONY : all clean fclean re
+=======
+>>>>>>> a79cfa3faa917194a380661f248fbd6bf93772c7

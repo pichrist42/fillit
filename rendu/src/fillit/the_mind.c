@@ -6,7 +6,7 @@
 /*   By: pichrist <pichrist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/22 19:43:00 by pichrist          #+#    #+#             */
-/*   Updated: 2017/05/13 19:46:49 by pichrist         ###   ########.fr       */
+/*   Updated: 2017/05/13 20:43:56 by pichrist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ int		the_mind_tri(char *square, size_t square_size, t_tetri *t, int *offset)
 	int found_place;
 
 	found_place = 0;
-	while (++*offset < ft_strlen(square) && !found_place)
+	while (++*offset < (int)ft_strlen(square) && !found_place)
 	{
 		block_nb = -1;
 		found_place = 1;
