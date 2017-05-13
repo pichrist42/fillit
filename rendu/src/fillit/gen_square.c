@@ -6,11 +6,11 @@
 /*   By: pichrist <pichrist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/22 19:43:36 by pichrist          #+#    #+#             */
-/*   Updated: 2017/01/30 06:29:02 by pichrist         ###   ########.fr       */
+/*   Updated: 2017/05/13 20:43:03 by pichrist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/fillit.h"
+#include "../../includes/fillit/fillit.h"
 
 char	*gen_square(size_t sq_size)
 {
@@ -20,7 +20,7 @@ char	*gen_square(size_t sq_size)
 	if (!(square = ft_strnew((sq_size + 1) * sq_size)))
 		return (NULL);
 	i = 0;
-	while (++i <= (sq_size + 1) * sq_size)
+	while (++i <= (int)((sq_size + 1) * sq_size))
 		if (!(i % (sq_size + 1)) && i)
 			square[i - 1] = '\n';
 		else

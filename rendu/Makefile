@@ -6,7 +6,7 @@
 #    By: pichrist <pichrist@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/08/19 09:41:20 by pichrist          #+#    #+#              #
-#    Updated: 2017/05/13 19:56:25 by pichrist         ###   ########.fr        #
+#    Updated: 2017/05/13 20:41:25 by pichrist         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ HEAD = $(addprefix $(HEAD_PATH),$(HEAD_NAME))
 all : $(NAME)
 
 $(NAME) :
-	@$(CC) $(SRC) $(LIB) -o $(NAME)
+	@$(CC) $(SRC) $(LIB) -o $(NAME) $(FLAGS)
 
 clean :
 	@rm -f $(OBJ)
@@ -40,5 +40,3 @@ fclean : clean
 	@rm -f $(NAME)
 
 re : fclean all
-
-.PHONY : all, clean, fclean, re

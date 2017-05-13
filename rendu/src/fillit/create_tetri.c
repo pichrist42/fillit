@@ -6,11 +6,11 @@
 /*   By: pichrist <pichrist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/22 19:42:06 by pichrist          #+#    #+#             */
-/*   Updated: 2017/04/19 17:35:45 by pichrist         ###   ########.fr       */
+/*   Updated: 2017/05/13 20:00:46 by pichrist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/fillit.h"
+#include "../../includes/fillit/fillit.h"
 
 t_tetri	*create_tetri(void)
 {

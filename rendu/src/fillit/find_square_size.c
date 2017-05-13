@@ -6,11 +6,11 @@
 /*   By: pichrist <pichrist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/22 19:43:57 by pichrist          #+#    #+#             */
-/*   Updated: 2017/03/30 19:53:07 by pichrist         ###   ########.fr       */
+/*   Updated: 2017/05/13 20:01:45 by pichrist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/fillit.h"
+#include "../../includes/fillit/fillit.h"
 
 size_t	find_square_size(char *file_content)
 {

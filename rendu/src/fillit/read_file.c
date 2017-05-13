@@ -6,11 +6,11 @@
 /*   By: pichrist <pichrist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/22 19:44:14 by pichrist          #+#    #+#             */
-/*   Updated: 2017/05/13 19:49:57 by pichrist         ###   ########.fr       */
+/*   Updated: 2017/05/13 20:01:57 by pichrist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/fillit.h"
+#include "../../includes/fillit/fillit.h"
 
 char	*read_file(char *str)
 {

@@ -6,11 +6,11 @@
 /*   By: pichrist <pichrist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/13 18:56:57 by pichrist          #+#    #+#             */
-/*   Updated: 2017/05/13 19:45:58 by pichrist         ###   ########.fr       */
+/*   Updated: 2017/05/13 20:42:20 by pichrist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/fillit.h"
+#include "../../includes/fillit/fillit.h"
 
 void	main_sub(char *file_content, size_t sq_size, char *square)
 {
@@ -38,7 +38,6 @@ int		main(int ac, char **av)
 {
 	size_t	sq_size;
 	char	*file_content;
-	char	*square;
 
 	if (ac != 2)
 		ft_putendl(\
@@ -49,7 +48,7 @@ int		main(int ac, char **av)
 			if (parse_file(file_content))
 			{
 				sq_size = find_square_size(file_content);
-				main_sub(file_content, sq_size, square);
+				main_sub(file_content, sq_size, NULL);
 			}
 			else
 				ft_putendl("error");

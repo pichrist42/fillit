@@ -6,11 +6,11 @@
 /*   By: pichrist <pichrist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/22 19:42:30 by pichrist          #+#    #+#             */
-/*   Updated: 2017/05/13 18:01:44 by pichrist         ###   ########.fr       */
+/*   Updated: 2017/05/13 20:01:48 by pichrist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/fillit.h"
+#include "../../includes/fillit/fillit.h"
 
 t_tetri	*find_tetri(char *file_content, int i, int j, int block_read)
 {

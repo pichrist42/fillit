@@ -6,11 +6,11 @@
 /*   By: pichrist <pichrist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/22 19:45:30 by pichrist          #+#    #+#             */
-/*   Updated: 2017/05/13 18:02:52 by pichrist         ###   ########.fr       */
+/*   Updated: 2017/05/13 20:01:54 by pichrist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/fillit.h"
+#include "../../includes/fillit/fillit.h"
 
 int		parse_file(char *file_content)
 {
