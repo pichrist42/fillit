@@ -6,7 +6,7 @@
 /*   By: pichrist <pichrist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/22 19:45:30 by pichrist          #+#    #+#             */
-/*   Updated: 2017/05/05 14:33:07 by flseaill         ###   ########.fr       */
+/*   Updated: 2017/05/13 16:58:57 by pichrist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ int		parse_file(char *file_content)
 
 	i = -1;
 	j = 0;
-	
 	while (file_content[++i])
 		if (i != 0 && !(i % 21))
 		{

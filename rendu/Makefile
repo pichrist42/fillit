@@ -6,12 +6,12 @@
 #    By: pichrist <pichrist@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/08/19 09:41:20 by pichrist          #+#    #+#              #
-#    Updated: 2017/03/30 17:43:52 by pichrist         ###   ########.fr        #
+#    Updated: 2017/05/13 17:00:44 by pichrist         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # PROJECT
-CC = gcc -std=c99
+CC = gcc
 OBJ = $(SRC:.c=.o)
 # FLAGS = -Wall -Wextra -Werror
 NAME = fillit
