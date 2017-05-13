@@ -6,7 +6,7 @@
 /*   By: pichrist <pichrist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/22 19:42:30 by pichrist          #+#    #+#             */
-/*   Updated: 2017/05/13 20:01:48 by pichrist         ###   ########.fr       */
+/*   Updated: 2017/05/13 21:32:16 by pichrist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ t_tetri	*find_tetri(char *file_content, int i, int j, int block_read)
 			find_tetri_sub(&t, &block_read, &off_read);
 			find_tetri_tri(&i, &j);
 		}
-		if (file_content[i + j * 5 + off_read] == '#')
+		if (file_content[i + j * 5 + off_read] == CHAR_ELEM)
 			find_tetri_quad(&i, &j, t, &block_read);
-		if (file_content[i + j * 5 + off_read] == '\n')
+		if (file_content[i + j * 5 + off_read] == CHAR_NL)
 		{
 			i = -1;
 			++j;

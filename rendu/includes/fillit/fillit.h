@@ -6,7 +6,7 @@
 /*   By: pichrist <pichrist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/12 15:54:50 by pichrist          #+#    #+#             */
-/*   Updated: 2017/05/13 20:01:10 by pichrist         ###   ########.fr       */
+/*   Updated: 2017/05/13 21:29:52 by pichrist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,10 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include "../libft/libft.h"
+
+# define CHAR_ELEM '#'
+# define CHAR_SPACE '.'
+# define CHAR_NL '\n'
 
 typedef struct		s_tetri
 {

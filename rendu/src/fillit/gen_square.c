@@ -6,7 +6,7 @@
 /*   By: pichrist <pichrist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/22 19:43:36 by pichrist          #+#    #+#             */
-/*   Updated: 2017/05/13 20:43:03 by pichrist         ###   ########.fr       */
+/*   Updated: 2017/05/13 21:32:28 by pichrist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ char	*gen_square(size_t sq_size)
 	i = 0;
 	while (++i <= (int)((sq_size + 1) * sq_size))
 		if (!(i % (sq_size + 1)) && i)
-			square[i - 1] = '\n';
+			square[i - 1] = CHAR_NL;
 		else
-			square[i - 1] = '.';
+			square[i - 1] = CHAR_SPACE;
 	return (square);
 }

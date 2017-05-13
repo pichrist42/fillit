@@ -6,7 +6,7 @@
 /*   By: pichrist <pichrist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/22 19:43:00 by pichrist          #+#    #+#             */
-/*   Updated: 2017/05/13 20:43:56 by pichrist         ###   ########.fr       */
+/*   Updated: 2017/05/13 21:34:59 by pichrist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int		the_mind_sub(char **square, size_t square_size, t_tetri *t, \
 		block_nb = -1;
 		while ((*square)[++block_nb])
 			if ((*square)[block_nb] == t->alpha)
-				(*square)[block_nb] = '.';
+				(*square)[block_nb] = CHAR_SPACE;
 	}
 	return (offset);
 }
@@ -78,7 +78,8 @@ int		the_mind_tri(char *square, size_t square_size, t_tetri *t, int *offset)
 		block_nb = -1;
 		found_place = 1;
 		while (++block_nb < 4 && found_place)
-			if (square[formula(square_size, t, block_nb) + *offset] != '.')
+			if (square[formula(square_size, t, block_nb) + *offset] \
+				!= CHAR_SPACE)
 				found_place = 0;
 	}
 	return (found_place);
