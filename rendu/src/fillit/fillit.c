@@ -6,19 +6,11 @@
 /*   By: pichrist <pichrist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/13 18:56:57 by pichrist          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2017/05/13 20:28:25 by flseaill         ###   ########.fr       */
-=======
-/*   Updated: 2017/05/13 20:42:20 by pichrist         ###   ########.fr       */
->>>>>>> a79cfa3faa917194a380661f248fbd6bf93772c7
+/*   Updated: 2017/05/13 21:15:22 by pichrist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/fillit/fillit.h"
-<<<<<<< HEAD
-#include "../../includes/libft/libft.h"
-=======
->>>>>>> a79cfa3faa917194a380661f248fbd6bf93772c7
 
 void	main_sub(char *file_content, size_t sq_size, char *square)
 {

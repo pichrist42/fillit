@@ -6,7 +6,7 @@
 /*   By: pichrist <pichrist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/22 19:44:14 by pichrist          #+#    #+#             */
-/*   Updated: 2017/05/13 20:01:57 by pichrist         ###   ########.fr       */
+/*   Updated: 2017/05/13 21:20:09 by pichrist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,7 @@ char	*read_file(char *str)
 
 	fd = open(str, O_RDONLY);
 	str = "";
-	if (!(buffer = (char*)malloc(1)))
-		return (NULL);
-	if (fd == -1)
+	if (!(buffer = (char*)malloc(1)) || fd == -1)
 		return (NULL);
 	while ((ret = read(fd, buffer, 1)))
 		str = ft_strjoin(str, buffer);
