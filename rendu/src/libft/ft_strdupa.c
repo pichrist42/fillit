@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../includes/libft/libft.h"
 
 char	*ft_strdupa(char *s, char *l)
 {

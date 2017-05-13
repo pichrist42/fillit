@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../includes/libft/libft.h"
 
 static int	ft_strchrp_do(char *s, char *item, size_t i, size_t j)
 {

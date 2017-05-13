@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../includes/libft/libft.h"
 
 size_t	ft_abs(int i)
 {

@@ -6,11 +6,12 @@
 /*   By: pichrist <pichrist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/13 18:56:57 by pichrist          #+#    #+#             */
-/*   Updated: 2017/05/13 19:45:58 by pichrist         ###   ########.fr       */
+/*   Updated: 2017/05/13 20:28:25 by flseaill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/fillit.h"
+#include "../../includes/fillit/fillit.h"
+#include "../../includes/libft/libft.h"
 
 void	main_sub(char *file_content, size_t sq_size, char *square)
 {

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/fillit.h"
+#include "../../includes/fillit/fillit.h"
 
 char	*the_mind(char *square, size_t square_size, t_tetri *t, int rollback)
 {
