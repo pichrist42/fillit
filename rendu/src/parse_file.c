@@ -6,7 +6,7 @@
 /*   By: pichrist <pichrist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/22 19:45:30 by pichrist          #+#    #+#             */
-/*   Updated: 2017/05/13 16:58:57 by pichrist         ###   ########.fr       */
+/*   Updated: 2017/05/13 18:02:52 by pichrist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int		valid_pcs(char *pcs)
 	line = 0;
 	link = 0;
 	while (++i < 20)
-	{	
+	{
 		if (!valid_pcs_sub(pcs, i, &link, &dot))
 			return (0);
 		if (pcs[i] == '\n')

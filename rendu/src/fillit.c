@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pichrist <pichrist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/14 23:41:20 by pichrist          #+#    #+#             */
-/*   Updated: 2017/04/30 22:40:37 by pichrist         ###   ########.fr       */
+/*   Created: 2017/05/13 18:56:57 by pichrist          #+#    #+#             */
+/*   Updated: 2017/05/13 18:59:15 by pichrist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,7 @@ void	main_sub(char *file_content, size_t sq_size, char *square)
 	{
 		sq_size = (++limiter > 1) ? ++sq_size : sq_size;
 		square = gen_square(sq_size);
-		// square = the_mind(square, sq_size, first, 0);
-		square = the_mind(square, sq_size, first);
+		square = the_mind(square, sq_size, first, 0);
 		exit_code = ft_strncmp(square, "too small", ft_strlen("too small"));
 	}
 	if (!exit_code)
@@ -45,6 +44,7 @@ int		main(int ac, char **av)
 		ft_putendl(\
 			"Incorrect number of arguments.\nUsage : ./fillit file.txt");
 	else
+	{
 		if ((file_content = read_file(av[1])))
 			if (parse_file(file_content))
 			{
@@ -55,5 +55,6 @@ int		main(int ac, char **av)
 				ft_putendl("error");
 		else
 			ft_putendl("error");
+	}
 	return (0);
 }

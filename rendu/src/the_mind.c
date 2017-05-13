@@ -6,33 +6,22 @@
 /*   By: pichrist <pichrist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/22 19:43:00 by pichrist          #+#    #+#             */
-/*   Updated: 2017/05/13 17:11:16 by pichrist         ###   ########.fr       */
+/*   Updated: 2017/05/13 18:04:12 by pichrist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fillit.h"
 
-char	*the_mind(char *square, size_t square_size, t_tetri *t)
+char	*the_mind(char *square, size_t square_size, t_tetri *t, int rollback)
 {
 	int	block_nb;
 	int	offset;
-	int found_place;
-	int	rollback;
 
 	rollback = 0;
 	while (1)
 	{
 		offset = the_mind_sub(&square, square_size, t, rollback);
-		found_place = 0;
-		while (++offset < ft_strlen(square) && !found_place)
-		{
-			block_nb = -1;
-			found_place = 1;
-			while (++block_nb < 4 && found_place)
-				if (square[formula(square_size, t, block_nb) + offset] != '.')
-					found_place = 0;
-		}
-		if (found_place)
+		if (the_mind_tri(square, square_size, t, &offset))
 		{
 			block_nb = -1;
 			--offset;
@@ -51,7 +40,8 @@ char	*the_mind(char *square, size_t square_size, t_tetri *t)
 	}
 }
 
-int		the_mind_sub(char **square, size_t square_size, t_tetri *t, int rollback)
+int		the_mind_sub(char **square, size_t square_size, t_tetri *t, \
+	int rollback)
 {
 	int block_nb;
 	int offset;
@@ -65,7 +55,8 @@ int		the_mind_sub(char **square, size_t square_size, t_tetri *t, int rollback)
 			rollback = 0;
 			block_nb = -1;
 			while (++block_nb < 4 && !rollback)
-				if ((*square)[formula(square_size, t, block_nb) + offset] != t->alpha)
+				if ((*square)[formula(square_size, t, block_nb) + offset] != \
+					t->alpha)
 					rollback = 1;
 		}
 		block_nb = -1;
@@ -74,6 +65,23 @@ int		the_mind_sub(char **square, size_t square_size, t_tetri *t, int rollback)
 				(*square)[block_nb] = '.';
 	}
 	return (offset);
+}
+
+int		the_mind_tri(char *square, size_t square_size, t_tetri *t, int *offset)
+{
+	int block_nb;
+	int found_place;
+
+	found_place = 0;
+	while (++*offset < ft_strlen(square) && !found_place)
+	{
+		block_nb = -1;
+		found_place = 1;
+		while (++block_nb < 4 && found_place)
+			if (square[formula(square_size, t, block_nb) + *offset] != '.')
+				found_place = 0;
+	}
+	return (found_place);
 }
 
 int		formula(size_t square_size, t_tetri *t, int i)
