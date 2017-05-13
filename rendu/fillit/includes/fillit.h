@@ -6,7 +6,7 @@
 /*   By: pichrist <pichrist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/12 15:54:50 by pichrist          #+#    #+#             */
-/*   Updated: 2017/04/30 21:56:00 by pichrist         ###   ########.fr       */
+/*   Updated: 2017/05/13 17:10:40 by pichrist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ t_tetri				*offset_tetri(t_tetri *first, t_tetri *t, int way);
 **
 */
 int					formula(size_t sq_size, t_tetri *t, int i);
-// int		the_mind_sub(char **square, size_t square_size, t_tetri *t, int rollback);
+int					the_mind_sub(char **square, size_t square_size, t_tetri *t, int rollback);
 // int		the_mind_tri(int offset, char *square, size_t square_size, t_tetri *t);
 // void	the_mind_quad(int offset, char **square, size_t square_size, t_tetri *t);
 // void	the_mind_quint(int *rollback, t_tetri **t, int value);
