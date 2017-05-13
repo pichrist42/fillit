@@ -6,7 +6,7 @@
 /*   By: pichrist <pichrist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/12 15:54:50 by pichrist          #+#    #+#             */
-/*   Updated: 2017/05/13 17:46:38 by pichrist         ###   ########.fr       */
+/*   Updated: 2017/05/13 19:02:58 by pichrist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,29 +35,31 @@ t_tetri				*create_tetri();
 ** Reads the tetrimino position from the input file and returns a t_tetri
 ** struct. Returns NULL in case of error.
 */
-t_tetri				*find_tetri(char *file_content, int i, int j, int block_read);
-void				find_tetri_sub(t_tetri **t, int *block_read, int *off_read);
+t_tetri				*find_tetri(char *file_content, int i, int j, \
+	int block_read);
+void				find_tetri_sub(t_tetri **t, int *block_read, \
+	int *off_read);
 void				find_tetri_tri(int *i, int *j);
-void				find_tetri_quad(int *i, int *j, t_tetri *t, int *block_read);
+void				find_tetri_quad(int *i, int *j, t_tetri *t, \
+	int *block_read);
 
 /*
-** Moves the tetriminos up or left on their own grid, in the struct. Calls 
+** Moves the tetriminos up or left on their own grid, in the struct. Calls
 ** itself until it has finished processing the whole struct, then returns the
 ** first item.
 */
 t_tetri				*offset_tetri(t_tetri *first, t_tetri *t, int way);
 
 /*
-**
+** Algorithm functions.
 */
 int					formula(size_t sq_size, t_tetri *t, int i);
-int					the_mind_sub(char **square, size_t square_size, t_tetri *t, int rollback);
-int					the_mind_tri(char *square, size_t square_size, t_tetri *t, int *offset);
-/*
-** void				the_mind_quad(int offset, char **square, size_t square_size, t_tetri *t);
-** void				the_mind_quint(int *rollback, t_tetri **t, int value);
-*/
-char				*the_mind(char *square, size_t square_size, t_tetri *t, int rollback);
+int					the_mind_sub(char **square, size_t square_size, t_tetri *t\
+	, int rollback);
+int					the_mind_tri(char *square, size_t square_size, t_tetri *t,\
+	int *offset);
+char				*the_mind(char *square, size_t square_size, t_tetri *t, \
+	int rollback);
 
 /*
 ** Allocates the square holding the results of the program. Returns the
