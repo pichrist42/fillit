@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   find_square_size.c                                 :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pichrist <pichrist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/22 19:43:57 by pichrist          #+#    #+#             */
-/*   Updated: 2017/05/14 20:39:41 by pichrist         ###   ########.fr       */
+/*   Created: 2016/11/29 17:49:57 by pichrist          #+#    #+#             */
+/*   Updated: 2017/01/17 05:21:25 by pichrist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/fillit/fillit.h"
+#include "../../includes/libft/libft.h"
 
-size_t	find_square_size(char *file_content)
+void		*ft_memcpy(void *v_dst, const void *v_src, size_t length)
 {
-	size_t	tetri_nb;
-	size_t	i;
+	char		*dst;
+	const char	*src = v_src;
 
-	tetri_nb = 0;
-	i = -1;
-	while (++i < ft_strlen(file_content) - 2)
-		if ((file_content[i] == CHAR_SPACE || file_content[i] == CHAR_ELEM) && \
-			file_content[i + 1] == CHAR_NL && file_content[i + 2] == CHAR_NL)
-			++tetri_nb;
-	++tetri_nb;
-	i = 2;
-	while (i * i < tetri_nb * 4)
-		++i;
-	return (i);
+	dst = (char*)v_dst;
+	while (length != 0 && dst != src)
+	{
+		*dst++ = *src++;
+		length--;
+	}
+	return (v_dst);
 }

@@ -1,31 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   find_square_size.c                                 :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pichrist <pichrist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/22 19:43:57 by pichrist          #+#    #+#             */
-/*   Updated: 2017/05/14 20:39:41 by pichrist         ###   ########.fr       */
+/*   Created: 2016/11/28 17:46:36 by pichrist          #+#    #+#             */
+/*   Updated: 2017/01/30 03:16:00 by pichrist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/fillit/fillit.h"
+#include "../../includes/libft/libft.h"
 
-size_t	find_square_size(char *file_content)
+char		*ft_itoa(int nbr)
 {
-	size_t	tetri_nb;
-	size_t	i;
+	char	buf[12];
+	int		i;
+	int		neg;
 
-	tetri_nb = 0;
-	i = -1;
-	while (++i < ft_strlen(file_content) - 2)
-		if ((file_content[i] == CHAR_SPACE || file_content[i] == CHAR_ELEM) && \
-			file_content[i + 1] == CHAR_NL && file_content[i + 2] == CHAR_NL)
-			++tetri_nb;
-	++tetri_nb;
-	i = 2;
-	while (i * i < tetri_nb * 4)
-		++i;
-	return (i);
+	i = 10;
+	ft_bzero(buf, 12);
+	if (!nbr)
+		return (ft_strdup("0"));
+	neg = (nbr < 0) ? 1 : 0;
+	while (nbr != 0)
+	{
+		buf[i--] = ft_abs(nbr % 10) + '0';
+		nbr /= 10;
+	}
+	if (neg)
+		buf[i] = '-';
+	return (ft_strdup(buf + i + ((!neg) ? 1 : 0)));
 }

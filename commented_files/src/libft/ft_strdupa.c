@@ -1,34 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read_file.c                                        :+:      :+:    :+:   */
+/*   ft_strdupa.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pichrist <pichrist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/22 19:44:14 by pichrist          #+#    #+#             */
-/*   Updated: 2017/05/14 19:33:40 by pichrist         ###   ########.fr       */
+/*   Created: 2016/12/07 19:40:08 by pichrist          #+#    #+#             */
+/*   Updated: 2017/01/30 03:47:55 by pichrist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/fillit/fillit.h"
+#include "../../includes/libft/libft.h"
 
-char	*read_file(char *str)
+char	*ft_strdupa(char *s, char *l)
 {
-	int		fd;
-	int		ret;
 	char	*buffer;
+	int		i;
+	int		p;
 
-	fd = open(str, O_RDONLY);
-	str = "";
-	if (!(buffer = (char*)malloc(1)) || fd == -1 || open(str, O_DIRECTORY) > 0)
+	if (s == NULL)
 		return (NULL);
-	while ((ret = read(fd, buffer, 1)))
-		str = ft_strjoin(str, buffer);
-	fd = -1;
-	if (!ft_strlen(str))
-		return ("file empty");
-	while (str[++fd])
-		;
-	str[fd] = '\0';
-	return (str);
+	if (l == NULL || ft_strlen(l) == 0)
+		return (ft_strdup(s));
+	p = ft_strchrp(s, l);
+	if (p == 0 || ((buffer = ft_strnew(ft_strlen(s) - (ft_strlen(l) + p))) \
+		== NULL))
+		return (ft_strdup(s));
+	i = p + 1;
+	p = 0;
+	while (s[i])
+	{
+		buffer[p] = s[i];
+		i++;
+		p++;
+	}
+	return (buffer);
 }

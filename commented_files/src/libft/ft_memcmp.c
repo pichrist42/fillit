@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   find_square_size.c                                 :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pichrist <pichrist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/22 19:43:57 by pichrist          #+#    #+#             */
-/*   Updated: 2017/05/14 20:39:41 by pichrist         ###   ########.fr       */
+/*   Created: 2016/11/29 17:54:28 by pichrist          #+#    #+#             */
+/*   Updated: 2016/11/29 19:10:26 by pichrist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/fillit/fillit.h"
+#include "../../includes/libft/libft.h"
 
-size_t	find_square_size(char *file_content)
+int		ft_memcmp(const void *str1, const void *str2, size_t n)
 {
-	size_t	tetri_nb;
-	size_t	i;
+	const unsigned char	*p1 = str1;
+	const unsigned char	*p2 = str2;
+	size_t				i;
 
-	tetri_nb = 0;
-	i = -1;
-	while (++i < ft_strlen(file_content) - 2)
-		if ((file_content[i] == CHAR_SPACE || file_content[i] == CHAR_ELEM) && \
-			file_content[i + 1] == CHAR_NL && file_content[i + 2] == CHAR_NL)
-			++tetri_nb;
-	++tetri_nb;
-	i = 2;
-	while (i * i < tetri_nb * 4)
-		++i;
-	return (i);
+	if (n != 0)
+	{
+		i = 0;
+		while (i++ < n)
+			if (*p1++ != *p2++)
+				return (*--p1 - *--p2);
+	}
+	return (0);
 }

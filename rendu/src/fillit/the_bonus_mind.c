@@ -1,34 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read_file.c                                        :+:      :+:    :+:   */
+/*   the_bonus_mind.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pichrist <pichrist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/22 19:44:14 by pichrist          #+#    #+#             */
-/*   Updated: 2017/05/14 19:33:40 by pichrist         ###   ########.fr       */
+/*   Created: 2017/05/14 20:53:59 by pichrist          #+#    #+#             */
+/*   Updated: 2017/05/14 20:54:29 by pichrist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/fillit/fillit.h"
 
-char	*read_file(char *str)
+int		formula(size_t square_size, t_tetri *t, int i)
 {
-	int		fd;
-	int		ret;
-	char	*buffer;
+	return (t->block[i][0] + t->block[i][1] * (square_size + 1));
+}
 
-	fd = open(str, O_RDONLY);
-	str = "";
-	if (!(buffer = (char*)malloc(1)) || fd == -1 || open(str, O_DIRECTORY) > 0)
-		return (NULL);
-	while ((ret = read(fd, buffer, 1)))
-		str = ft_strjoin(str, buffer);
-	fd = -1;
-	if (!ft_strlen(str))
-		return ("file empty");
-	while (str[++fd])
-		;
-	str[fd] = '\0';
-	return (str);
+int		the_unknown(char *square, t_tetri *t)
+{
+	int i;
+	int nb_space;
+	int nb_t;
+
+	i = -1;
+	nb_space = 0;
+	nb_t = 0;
+	while (square[++i])
+		if (square[i] == CHAR_SPACE)
+			++nb_space;
+	while (t->next)
+	{
+		++nb_t;
+		t = t->next;
+	}
+	return ((nb_t * 4 > nb_space) ? 1 : 0);
 }

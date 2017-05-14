@@ -1,31 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   find_square_size.c                                 :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pichrist <pichrist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/22 19:43:57 by pichrist          #+#    #+#             */
-/*   Updated: 2017/05/14 20:39:41 by pichrist         ###   ########.fr       */
+/*   Created: 2016/11/29 17:37:39 by pichrist          #+#    #+#             */
+/*   Updated: 2016/12/07 16:59:07 by pichrist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/fillit/fillit.h"
+#include "../../includes/libft/libft.h"
 
-size_t	find_square_size(char *file_content)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	size_t	tetri_nb;
-	size_t	i;
+	char	*new;
 
-	tetri_nb = 0;
-	i = -1;
-	while (++i < ft_strlen(file_content) - 2)
-		if ((file_content[i] == CHAR_SPACE || file_content[i] == CHAR_ELEM) && \
-			file_content[i + 1] == CHAR_NL && file_content[i + 2] == CHAR_NL)
-			++tetri_nb;
-	++tetri_nb;
-	i = 2;
-	while (i * i < tetri_nb * 4)
-		++i;
-	return (i);
+	new = NULL;
+	if (s1 && s2)
+	{
+		new = ft_strnew(sizeof(*new) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+		if (!new)
+			return (NULL);
+		new = ft_strcat(new, (char*)s1);
+		new = ft_strcat(new, (char*)s2);
+		return (new);
+	}
+	if (s1)
+		return (ft_strdup(s1));
+	if (s2)
+		return (ft_strdup(s2));
+	return (new);
 }

@@ -1,34 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read_file.c                                        :+:      :+:    :+:   */
+/*   find_square_size.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pichrist <pichrist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/22 19:44:14 by pichrist          #+#    #+#             */
-/*   Updated: 2017/05/14 19:33:40 by pichrist         ###   ########.fr       */
+/*   Created: 2017/01/22 19:43:57 by pichrist          #+#    #+#             */
+/*   Updated: 2017/05/14 20:32:43 by pichrist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/fillit/fillit.h"
 
-char	*read_file(char *str)
+size_t	find_square_size(char *file_content)
 {
-	int		fd;
-	int		ret;
-	char	*buffer;
+	size_t	tetri_nb;
+	size_t	i;
 
-	fd = open(str, O_RDONLY);
-	str = "";
-	if (!(buffer = (char*)malloc(1)) || fd == -1 || open(str, O_DIRECTORY) > 0)
-		return (NULL);
-	while ((ret = read(fd, buffer, 1)))
-		str = ft_strjoin(str, buffer);
-	fd = -1;
-	if (!ft_strlen(str))
-		return ("file empty");
-	while (str[++fd])
-		;
-	str[fd] = '\0';
-	return (str);
+	tetri_nb = 0;
+	i = -1;
+	while (++i < ft_strlen(file_content) - 2)
+		if ((file_content[i] == CHAR_SPACE || file_content[i] == CHAR_ELEM) && \
+			file_content[i + 1] == CHAR_NL && file_content[i + 2] == CHAR_NL)
+			++tetri_nb;
+	++tetri_nb;
+	// print_int("tetri nb ", tetri_nb, 1);
+	i = 2;
+	while (i * i < tetri_nb * 4)
+		++i;
+	// print_int("size min ", i, 1);
+	return (i);
 }

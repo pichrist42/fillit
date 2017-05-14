@@ -6,7 +6,7 @@
 /*   By: pichrist <pichrist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/12 15:54:50 by pichrist          #+#    #+#             */
-/*   Updated: 2017/05/14 20:53:36 by pichrist         ###   ########.fr       */
+/*   Updated: 2017/05/14 20:40:40 by pichrist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,6 @@ int					the_mind_sub(char **square, size_t square_size, t_tetri *t\
 	, int rollback);
 int					the_mind_tri(char *square, size_t square_size, t_tetri *t,\
 	int *offset);
-char				*the_mind_quad(char *square, size_t square_size, \
-	t_tetri *t, int offset);
 char				*the_mind(char *square, size_t square_size, t_tetri *t, \
 	int rollback);
 int					the_unknown(char *square, t_tetri *t);
@@ -101,5 +99,12 @@ void				display_square(char *square);
 ** Second part of the main function.
 */
 void				main_sub(char *file_content, size_t sq_size, char *square);
+
+void	print_int(char *s, int val, int end);
+
+void	print_char(char *s, char val, int end);
+
+void	print_str(int tab, char *s, int end);
+#define DEBUG 1
 
 #endif

@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   find_square_size.c                                 :+:      :+:    :+:   */
+/*   ft_strmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pichrist <pichrist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/22 19:43:57 by pichrist          #+#    #+#             */
-/*   Updated: 2017/05/14 20:39:41 by pichrist         ###   ########.fr       */
+/*   Created: 2016/11/29 17:32:38 by pichrist          #+#    #+#             */
+/*   Updated: 2017/01/30 01:11:40 by pichrist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/fillit/fillit.h"
+#include "../../includes/libft/libft.h"
 
-size_t	find_square_size(char *file_content)
+char		*ft_strmap(char const *s, char (*f)(char))
 {
-	size_t	tetri_nb;
+	char	*new;
 	size_t	i;
+	size_t	len;
 
-	tetri_nb = 0;
-	i = -1;
-	while (++i < ft_strlen(file_content) - 2)
-		if ((file_content[i] == CHAR_SPACE || file_content[i] == CHAR_ELEM) && \
-			file_content[i + 1] == CHAR_NL && file_content[i + 2] == CHAR_NL)
-			++tetri_nb;
-	++tetri_nb;
-	i = 2;
-	while (i * i < tetri_nb * 4)
-		++i;
-	return (i);
+	new = NULL;
+	if (s && f)
+	{
+		len = ft_strlen(s);
+		if ((new = (char*)ft_memalloc(len + 1)) == NULL)
+			return (NULL);
+		i = -1;
+		while (++i < len)
+			new[i] = f(s[i]);
+	}
+	return (new);
 }

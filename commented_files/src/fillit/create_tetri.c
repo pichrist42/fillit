@@ -1,34 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read_file.c                                        :+:      :+:    :+:   */
+/*   create_tetri.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pichrist <pichrist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/22 19:44:14 by pichrist          #+#    #+#             */
-/*   Updated: 2017/05/14 19:33:40 by pichrist         ###   ########.fr       */
+/*   Created: 2017/01/22 19:42:06 by pichrist          #+#    #+#             */
+/*   Updated: 2017/05/13 20:00:46 by pichrist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/fillit/fillit.h"
 
-char	*read_file(char *str)
+t_tetri	*create_tetri(void)
 {
-	int		fd;
-	int		ret;
-	char	*buffer;
+	t_tetri	*new;
+	int		i;
 
-	fd = open(str, O_RDONLY);
-	str = "";
-	if (!(buffer = (char*)malloc(1)) || fd == -1 || open(str, O_DIRECTORY) > 0)
+	i = 0;
+	new = (t_tetri*)malloc(sizeof(t_tetri));
+	if (!new)
 		return (NULL);
-	while ((ret = read(fd, buffer, 1)))
-		str = ft_strjoin(str, buffer);
-	fd = -1;
-	if (!ft_strlen(str))
-		return ("file empty");
-	while (str[++fd])
-		;
-	str[fd] = '\0';
-	return (str);
+	new->block = (size_t**)malloc(4 * sizeof(size_t*));
+	new->block[0] = (size_t*)malloc(4 * 2 * sizeof(size_t));
+	while (++i < 4)
+		new->block[i] = new->block[i - 1] + 2;
+	new->next = (t_tetri*)NULL;
+	new->prev = (t_tetri*)NULL;
+	new->alpha = 'A';
+	return (new);
 }

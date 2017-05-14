@@ -1,34 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read_file.c                                        :+:      :+:    :+:   */
+/*   gen_square.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pichrist <pichrist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/22 19:44:14 by pichrist          #+#    #+#             */
-/*   Updated: 2017/05/14 19:33:40 by pichrist         ###   ########.fr       */
+/*   Created: 2017/01/22 19:43:36 by pichrist          #+#    #+#             */
+/*   Updated: 2017/05/13 21:32:28 by pichrist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/fillit/fillit.h"
 
-char	*read_file(char *str)
+char	*gen_square(size_t sq_size)
 {
-	int		fd;
-	int		ret;
-	char	*buffer;
+	char	*square;
+	int		i;
 
-	fd = open(str, O_RDONLY);
-	str = "";
-	if (!(buffer = (char*)malloc(1)) || fd == -1 || open(str, O_DIRECTORY) > 0)
+	if (!(square = ft_strnew((sq_size + 1) * sq_size)))
 		return (NULL);
-	while ((ret = read(fd, buffer, 1)))
-		str = ft_strjoin(str, buffer);
-	fd = -1;
-	if (!ft_strlen(str))
-		return ("file empty");
-	while (str[++fd])
-		;
-	str[fd] = '\0';
-	return (str);
+	i = 0;
+	while (++i <= (int)((sq_size + 1) * sq_size))
+		if (!(i % (sq_size + 1)) && i)
+			square[i - 1] = CHAR_NL;
+		else
+			square[i - 1] = CHAR_SPACE;
+	return (square);
 }
