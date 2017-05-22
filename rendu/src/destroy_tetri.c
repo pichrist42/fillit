@@ -1,34 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read_file.c                                        :+:      :+:    :+:   */
+/*   destroy_tetri.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pichrist <pichrist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/22 19:44:14 by pichrist          #+#    #+#             */
-/*   Updated: 2017/05/23 00:58:25 by pichrist         ###   ########.fr       */
+/*   Created: 2017/05/22 23:14:31 by pichrist          #+#    #+#             */
+/*   Updated: 2017/05/23 00:58:11 by pichrist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fillit.h"
 
-char	*read_file(char *str)
+void	destroy_tetri(t_tetri *first)
 {
-	int		fd;
-	int		ret;
-	char	*buffer;
+	t_tetri *t;
 
-	fd = open(str, O_RDONLY);
-	ft_strclr(str);
-	if (!(buffer = (char*)malloc(1)) || fd == -1 || open(str, O_DIRECTORY) > 0)
-		return (NULL);
-	while ((ret = read(fd, buffer, 1)) && ft_isascii(buffer[0]))
-		str = ft_strjoin(str, buffer);
-	fd = -1;
-	if (!ft_strlen(str))
-		return ("error");
-	while (str[++fd])
-		;
-	str[fd] = '\0';
-	return (str);
+	while (first->next)
+	{
+		t = first;
+		first = first->next;
+		destroy_every_tetri(t);
+	}
+	destroy_every_tetri(first);
+}
+
+void	destroy_every_tetri(t_tetri *t)
+{
+	free(t->block[0]);
+	free(t->block);
+	free(t);
 }

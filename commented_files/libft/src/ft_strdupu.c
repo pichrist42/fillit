@@ -1,34 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read_file.c                                        :+:      :+:    :+:   */
+/*   ft_strdupu.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pichrist <pichrist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/22 19:44:14 by pichrist          #+#    #+#             */
-/*   Updated: 2017/05/23 00:58:25 by pichrist         ###   ########.fr       */
+/*   Created: 2016/12/07 18:25:11 by pichrist          #+#    #+#             */
+/*   Updated: 2017/05/22 22:33:19 by pichrist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/fillit.h"
+#include "../includes/libft.h"
 
-char	*read_file(char *str)
+char	*ft_strdupu(char *s, char *l)
 {
-	int		fd;
-	int		ret;
 	char	*buffer;
+	int		i;
+	int		p;
 
-	fd = open(str, O_RDONLY);
-	ft_strclr(str);
-	if (!(buffer = (char*)malloc(1)) || fd == -1 || open(str, O_DIRECTORY) > 0)
+	if (s == NULL)
 		return (NULL);
-	while ((ret = read(fd, buffer, 1)) && ft_isascii(buffer[0]))
-		str = ft_strjoin(str, buffer);
-	fd = -1;
-	if (!ft_strlen(str))
-		return ("error");
-	while (str[++fd])
-		;
-	str[fd] = '\0';
-	return (str);
+	if (l == NULL || ft_strlen(l) == 0)
+		return (ft_strdup(s));
+	p = ft_strchrp(s, l);
+	if (p == 0 || ((buffer = ft_strnew(p + 1)) == NULL))
+		return (ft_strdup(s));
+	i = -1;
+	while (s[++i] && i < p)
+		buffer[i] = s[i];
+	return (buffer);
 }

@@ -6,7 +6,7 @@
 #    By: pichrist <pichrist@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/08/19 09:41:20 by pichrist          #+#    #+#              #
-#    Updated: 2017/05/22 22:44:23 by pichrist         ###   ########.fr        #
+#    Updated: 2017/05/22 23:23:28 by pichrist         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ NAME = fillit
 SRC_PATH = src/
 SRC_NAME = 	fillit.c display_square.c read_file.c find_square_size.c \
 			gen_square.c find_tetri.c the_mind.c create_tetri.c parse_file.c \
-			the_bonus_mind.c
+			the_bonus_mind.c destroy_tetri.c
 HEAD = includes/fillit.h libft/includes/libft.h
 LIB_MAKE = libft/includes
 LIB = libft/includes/libft.a

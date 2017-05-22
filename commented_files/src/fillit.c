@@ -6,7 +6,7 @@
 /*   By: pichrist <pichrist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/13 18:56:57 by pichrist          #+#    #+#             */
-/*   Updated: 2017/05/23 01:01:21 by pichrist         ###   ########.fr       */
+/*   Updated: 2017/05/22 21:22:42 by pichrist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,9 @@ void	main_sub(char *file_content, size_t sq_size, char *square)
 		exit_code = ft_strncmp(square, "too small", ft_strlen("too small"));
 	}
 	if (!exit_code)
-		ft_putendl("error");
+		ft_putendl("Error during the resolution of the problem.");
 	else
 		display_square(square);
-	destroy_tetri(first);
 }
 
 int		main(int ac, char **av)
@@ -49,7 +48,6 @@ int		main(int ac, char **av)
 			{
 				sq_size = find_square_size(file_content);
 				main_sub(file_content, sq_size, NULL);
-				free(file_content);
 			}
 			else
 				ft_putendl("error");

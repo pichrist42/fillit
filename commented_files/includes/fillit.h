@@ -6,7 +6,7 @@
 /*   By: pichrist <pichrist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/12 15:54:50 by pichrist          #+#    #+#             */
-/*   Updated: 2017/05/23 01:05:32 by pichrist         ###   ########.fr       */
+/*   Updated: 2017/05/22 22:39:04 by pichrist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@
 # define CHAR_ELEM '#'
 # define CHAR_SPACE '.'
 # define CHAR_NL '\n'
-# define MAX_LIMIT 10000000
 
 typedef struct		s_tetri
 {
@@ -62,8 +61,6 @@ int					the_mind_sub(char **square, size_t square_size, t_tetri *t\
 	, int rollback);
 int					the_mind_tri(char *square, size_t square_size, t_tetri *t,\
 	int *offset);
-char				*the_mind_quad(char *square, size_t square_size, \
-	t_tetri *t, int offset);
 char				*the_mind(char *square, size_t square_size, t_tetri *t, \
 	int rollback);
 int					the_unknown(char *square, t_tetri *t);
@@ -98,14 +95,19 @@ char				*read_file(char *str);
 void				display_square(char *square);
 
 /*
-** Struct destructor.
-*/
-void				destroy_tetri(t_tetri *first);
-void				destroy_every_tetri(t_tetri *t);
-
-/*
 ** Second part of the main function.
 */
 void				main_sub(char *file_content, size_t sq_size, char *square);
+
+#endif
+
+#ifndef DEBUG_PART
+# define DEBUG_PART
+
+# include <stdio.h>
+# define DEBUG 1
+void	print_int(char *s, int val, int end);
+void	print_char(char *s, char val, int end);
+void	print_str(int tab, char *s, int end);
 
 #endif
