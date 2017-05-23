@@ -6,7 +6,7 @@
 /*   By: pichrist <pichrist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/22 19:45:30 by pichrist          #+#    #+#             */
-/*   Updated: 2017/05/22 22:43:17 by pichrist         ###   ########.fr       */
+/*   Updated: 2017/05/23 02:13:34 by flseaill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ int		parse_file(char *file_content)
 			if (!(valid_pcs(ft_strsub(file_content, (j * 21), 21))))
 				return (0);
 			++j;
+			if (j > PCS_LIMIT)
+				return (0);
 		}
 		else if (i != 0 && !(file_content[i + 1]))
 			if (!(valid_pcs(ft_strsub(file_content, (j * 21), 21))))

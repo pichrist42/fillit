@@ -6,7 +6,7 @@
 /*   By: pichrist <pichrist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/22 19:43:00 by pichrist          #+#    #+#             */
-/*   Updated: 2017/05/23 01:09:42 by pichrist         ###   ########.fr       */
+/*   Updated: 2017/05/23 02:34:13 by flseaill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,19 @@
 char	*the_mind(char *square, size_t square_size, t_tetri *t, int rollback)
 {
 	int	offset;
+	int i;
 
 	rollback = 0;
-	int i = 0;
+	i = 0;
 	while (1)
 	{
-		// ft_putnbr(i);
-		// ft_putendl("");
-		if (++i > MAX_LIMIT)
-			return ("too small");
 		offset = the_mind_sub(&square, square_size, t, rollback);
 		if (the_mind_tri(square, square_size, t, &offset))
 		{
 			square = the_mind_quad(square, square_size, t, offset - 1);
 			if (!(t->next))
 				return (square);
-			if (the_unknown(square, t))
+			if (the_unknown(square, t) || ++i > OP_MAX)
 				return ("too small");
 			rollback = 0;
 			t = t->next;

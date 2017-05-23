@@ -6,7 +6,7 @@
 /*   By: pichrist <pichrist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/12 15:54:50 by pichrist          #+#    #+#             */
-/*   Updated: 2017/05/23 01:05:32 by pichrist         ###   ########.fr       */
+/*   Updated: 2017/05/23 02:39:39 by flseaill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@
 # define CHAR_ELEM '#'
 # define CHAR_SPACE '.'
 # define CHAR_NL '\n'
-# define MAX_LIMIT 10000000
+# define OP_MAX 10000000
+# define PCS_LIMIT 25
 
 typedef struct		s_tetri
 {
